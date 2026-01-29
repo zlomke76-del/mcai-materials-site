@@ -1,3 +1,5 @@
+import SolacePanel from "@/components/SolacePanel";
+
 export default function PolyVerdiaPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16 space-y-6">
@@ -20,7 +22,7 @@ export default function PolyVerdiaPage() {
         always-on material behavior.
       </p>
 
-      {/* SolacePanel will be mounted here (governed, disabled initially) */}
+      <SolacePanel context="PolyVerdia™ materials" />
     </main>
   );
 }
