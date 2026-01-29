@@ -37,6 +37,12 @@ export default function HomePage() {
           surfaces behave, how moisture interacts, how long materials persist,
           and what happens when their useful life ends.
         </p>
+
+        {/* === MATERIALS DOCTRINE === */}
+        <p className="mt-6 text-base leading-relaxed text-neutral-700">
+          These materials are designed where responsibility cannot be deferred —
+          at the layer where physical systems shape human outcomes.
+        </p>
       </header>
 
       {/* ===================================================== */}
