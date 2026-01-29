@@ -5,6 +5,7 @@ import { useState } from "react";
 type SolaceMode =
   | "intro"
   | "explain"
+  | "answer"
   | "qualify"
   | "email"
   | "complete";
@@ -20,7 +21,19 @@ export default function MaterialsSolaceRuntime({
 }: Props) {
   const [mode, setMode] = useState<SolaceMode>("intro");
   const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState<string | null>(null);
   const [email, setEmail] = useState("");
+
+  function handleSubmitQuestion() {
+    // GOVERNED PLACEHOLDER RESPONSE
+    // This makes the system honest and visible until a real Solace backend is connected.
+    setAnswer(
+      `Based on the information published on this site, ${pageLabel} is positioned as a material-level approach to addressing moisture-associated conditions that can contribute to microbial growth in infrastructure environments.
+
+I can help explain the intent, scope, and boundaries of the material platform, but I can’t assess suitability for a specific installation, provide performance guarantees, or offer operational guidance.`
+    );
+    setMode("answer");
+  }
 
   return (
     <div className="space-y-5">
@@ -40,8 +53,7 @@ export default function MaterialsSolaceRuntime({
             </p>
             <p className="mt-2 text-zinc-600 dark:text-zinc-400">
               I can’t provide instructions, regulatory advice, or guarantees —
-              but I can help you understand whether this material is relevant to
-              your problem space.
+              but I can help explain intent, scope, and boundaries.
             </p>
           </>
         )}
@@ -53,17 +65,28 @@ export default function MaterialsSolaceRuntime({
           </p>
         )}
 
+        {mode === "answer" && answer && (
+          <>
+            <p className="font-medium text-zinc-900 dark:text-zinc-100">
+              Here’s what I can share:
+            </p>
+            <div className="mt-3 rounded-md border border-zinc-200 bg-white p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900">
+              <p className="whitespace-pre-line">{answer}</p>
+            </div>
+          </>
+        )}
+
         {mode === "qualify" && (
           <p>
-            If you’d like to continue the conversation with a human specialist,
-            I can help route that.
+            Some questions require human review. I can help route that if you’d
+            like.
           </p>
         )}
 
         {mode === "email" && (
           <p>
-            Leave an email address and someone from the materials team can
-            follow up.
+            Leave an email address and someone from the materials team can follow
+            up.
           </p>
         )}
 
@@ -100,9 +123,10 @@ export default function MaterialsSolaceRuntime({
           <div className="flex gap-4">
             <button
               className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
-              onClick={() => setMode("qualify")}
+              onClick={handleSubmitQuestion}
+              disabled={!question.trim()}
             >
-              Continue
+              Ask Solace
             </button>
 
             <button
@@ -113,6 +137,24 @@ export default function MaterialsSolaceRuntime({
             </button>
           </div>
         </>
+      )}
+
+      {mode === "answer" && (
+        <div className="flex gap-4">
+          <button
+            className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+            onClick={() => setMode("qualify")}
+          >
+            Continue with human review
+          </button>
+
+          <button
+            className="text-sm text-zinc-500"
+            onClick={() => setMode("intro")}
+          >
+            Done
+          </button>
+        </div>
       )}
 
       {mode === "qualify" && (
