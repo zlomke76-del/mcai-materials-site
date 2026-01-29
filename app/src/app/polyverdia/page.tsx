@@ -4,18 +4,29 @@ export default function PolyVerdiaPage() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
       {/* ===================================================== */}
-      {/* HEADER */}
+      {/* HEADER / REGIME ENTRY */}
       {/* ===================================================== */}
-      <header className="mb-14 max-w-3xl">
+      <header className="mb-16 max-w-3xl">
         <h1 className="text-3xl font-semibold tracking-tight text-sky-900 dark:text-sky-100">
           PolyVerdia™
         </h1>
 
-        <div className="mt-5 h-px w-20 bg-sky-300 dark:bg-sky-700" />
+        <div className="mt-5 h-px w-24 bg-sky-400 dark:bg-sky-700" />
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300">
-          Moisture-active polymer systems designed to support infrastructure
-          hygiene within HVAC environments.
+        <p className="mt-4 text-xs font-medium uppercase tracking-widest text-sky-700 dark:text-sky-400">
+          Problem domain: moisture-driven microbial growth in infrastructure
+        </p>
+
+        <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
+          PolyVerdia™ is designed where responsibility cannot be deferred — at
+          the material layer where infrastructure hygiene outcomes are shaped
+          long before maintenance schedules, chemical treatments, or human
+          intervention can respond.
+        </p>
+
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-800 dark:text-zinc-200">
+          Moisture-active polymer systems engineered for persistent protection
+          within HVAC and related infrastructure environments.
         </p>
       </header>
 
@@ -46,18 +57,18 @@ export default function PolyVerdiaPage() {
       {/* ===================================================== */}
       {/* SOLACE (SECONDARY / GOVERNED) */}
       {/* ===================================================== */}
-      <section className="mt-20 border-t border-sky-200 pt-10 dark:border-sky-800">
+      <section className="mt-24 border-t border-sky-200 pt-12 dark:border-sky-800">
         <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-sky-700 dark:text-sky-400">
           Reference & Clarification
         </h2>
 
-        <p className="mb-6 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+        <p className="mb-8 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
           Solace provides limited, informational responses related to PolyVerdia™
           materials. It does not provide operational guidance, maintenance
           procedures, or regulatory advice.
         </p>
 
-        <div className="rounded-xl border border-sky-200 bg-sky-50/60 p-4 dark:border-sky-800 dark:bg-sky-900/20">
+        <div className="rounded-xl border border-sky-200 bg-sky-50/70 p-5 dark:border-sky-800 dark:bg-sky-900/25">
           <SolacePanel context="PolyVerdia™ materials overview" />
         </div>
       </section>
