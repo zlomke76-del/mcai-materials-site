@@ -1,3 +1,5 @@
+import SolacePanel from "@/components/SolacePanel";
+
 export default function BioSyntarPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16 space-y-6">
@@ -21,7 +23,7 @@ export default function BioSyntarPage() {
         reducing environmental persistence.
       </p>
 
-      {/* SolacePanel will be mounted here (governed, disabled initially) */}
+      <SolacePanel context="BioSyntar™ materials" />
     </main>
   );
 }
