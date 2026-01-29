@@ -2,7 +2,7 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Moral Clarity AI — Materials",
+  title: "Moral Clarity AI – Materials",
   description:
     "Governed materials explained with restraint, powered by Moral Clarity AI.",
 };
@@ -15,26 +15,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="border-b border-neutral-200">
-          <nav className="mx-auto flex max-w-5xl items-center gap-6 px-6 py-4 text-sm">
-            <Link href="/" className="font-medium">
-              Home
-            </Link>
-
-            <Link href="/biosyntar" className="text-neutral-700 hover:text-black">
-              BioSyntar™
-            </Link>
-
-            <Link
-              href="/polyverdia"
-              className="text-neutral-700 hover:text-black"
-            >
-              PolyVerdia™
-            </Link>
+        <header className="border-b border-neutral-200 px-6 py-4">
+          <nav className="flex gap-6 text-sm">
+            <Link href="/">Home</Link>
+            <Link href="/biosyntar">Biosyntar</Link>
+            <Link href="/polyverdia">Polyverdia</Link>
           </nav>
         </header>
 
-        {children}
+        <main className="px-6 py-8">{children}</main>
       </body>
     </html>
   );
