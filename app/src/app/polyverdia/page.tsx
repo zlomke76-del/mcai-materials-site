@@ -55,20 +55,32 @@ export default function PolyVerdiaPage() {
       </section>
 
       {/* ===================================================== */}
-      {/* SOLACE (SECONDARY / GOVERNED) */}
+      {/* SOLACE — GOVERNED INTERPRETIVE LAYER (INACTIVE) */}
       {/* ===================================================== */}
-      <section className="mt-24 border-t border-sky-200 pt-12 dark:border-sky-800">
-        <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-sky-700 dark:text-sky-400">
-          Reference & Clarification
+      <section className="mt-24 max-w-3xl rounded-xl border border-sky-200 bg-sky-50/70 p-8 dark:border-sky-800 dark:bg-sky-900/25">
+        <h2 className="mb-3 text-xs font-medium uppercase tracking-widest text-sky-700 dark:text-sky-400">
+          Governed Interpretation (Solace)
         </h2>
 
-        <p className="mb-8 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Solace provides limited, informational responses related to PolyVerdia™
-          materials. It does not provide operational guidance, maintenance
-          procedures, or regulatory advice.
+        <p className="mb-4 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+          Solace is a governed AI interpretive layer designed to provide
+          constrained, source-bound explanations related to PolyVerdia™
+          materials.
         </p>
 
-        <div className="rounded-xl border border-sky-200 bg-sky-50/70 p-5 dark:border-sky-800 dark:bg-sky-900/25">
+        <p className="mb-6 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+          On this page, Solace will operate only within published material and
+          approved explanatory scope. Requests for operational guidance,
+          performance guarantees, or regulatory determinations will be
+          declined by design.
+        </p>
+
+        <div className="rounded-md border border-dashed border-sky-300 bg-white/60 px-4 py-3 text-sm text-zinc-500 dark:border-sky-700 dark:bg-sky-950/40 dark:text-zinc-400">
+          Solace is not active on this page yet.
+        </div>
+
+        {/* Rendered for layout continuity; intentionally inactive */}
+        <div className="mt-4 opacity-40 pointer-events-none">
           <SolacePanel context="PolyVerdia™ materials overview" />
         </div>
       </section>
