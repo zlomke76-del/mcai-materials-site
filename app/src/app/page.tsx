@@ -3,20 +3,19 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-center gap-16 py-32 px-16 bg-white dark:bg-black sm:items-start">
         {/* ===================================================== */}
-        {/* HERO */}
+        {/* INTRO */}
         {/* ===================================================== */}
         <section className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-black dark:text-zinc-50">
-            Governed Materials, Explained
+            Materials Reference Index
           </h1>
 
           <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            This site documents advanced materials through the lens of explicit
-            boundaries, constraint-aware design, and human stewardship.
+            This site hosts reference pages for independent materials companies.
             <br />
             <br />
-            Each material is presented not only by what it enables, but by where
-            its use must stop.
+            The material descriptions provided here are informational only and
+            do not imply ownership, authorship, or operational control.
           </p>
         </section>
 
@@ -25,7 +24,7 @@ export default function Home() {
         {/* ===================================================== */}
         <section className="w-full">
           <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-            Materials Index
+            Hosted Companies
           </h2>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -43,12 +42,15 @@ export default function Home() {
               </h3>
 
               <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                A biologically inspired synthetic material explored within
-                defined safety, ethical, and deployment boundaries.
+                An independent materials company founded by Charlie, focused on
+                biologically inspired synthetic systems.
+                <br />
+                <br />
+                This page is hosted for reference purposes only.
               </p>
 
               <div className="mt-4 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                View material →
+                View site →
               </div>
             </a>
 
@@ -66,12 +68,15 @@ export default function Home() {
               </h3>
 
               <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                A polymer-based system evaluated through environmental,
-                lifecycle, and constraint-first performance criteria.
+                An independently operated polymer materials company founded by
+                Charlie.
+                <br />
+                <br />
+                Content is presented here as a hosted informational resource.
               </p>
 
               <div className="mt-4 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                View material →
+                View site →
               </div>
             </a>
           </div>
