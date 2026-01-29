@@ -1,7 +1,7 @@
 // app/page.tsx
 // ============================================================
 // MATERIALS INDEX — MCAI Materials Site
-// Serious, high-consequence material platforms
+// Color-forward, serious, high-consequence materials
 // ============================================================
 
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function HomePage() {
           Materials
         </h1>
 
-        <div className="mt-6 h-px w-24 bg-neutral-300" />
+        <div className="mt-6 h-px w-20 bg-neutral-400" />
 
         <p className="mt-8 text-base leading-relaxed text-neutral-800">
           These materials exist because conventional materials fail silently —
@@ -46,17 +46,17 @@ export default function HomePage() {
         {/* ------------------------------------------------- */}
         {/* BioSyntar */}
         {/* ------------------------------------------------- */}
-        <article className="flex h-full flex-col justify-between rounded-xl border border-neutral-200 bg-white p-10 shadow-sm transition hover:shadow-md">
+        <article className="flex h-full flex-col justify-between rounded-xl border border-emerald-200 bg-emerald-50/60 p-10 shadow-sm transition hover:shadow-md">
           <div>
-            <h2 className="text-xl font-semibold text-emerald-800">
+            <h2 className="text-xl font-semibold text-emerald-900">
               BioSyntar™
             </h2>
 
-            <p className="mt-3 text-sm font-medium tracking-wide text-neutral-500">
+            <p className="mt-3 text-sm font-medium tracking-wide text-emerald-800">
               Biodegradable antibacterial microfilms
             </p>
 
-            <p className="mt-3 text-xs uppercase tracking-widest text-emerald-700">
+            <p className="mt-3 text-[11px] uppercase tracking-wider text-emerald-700">
               Problem domain: food-contact surface contamination
             </p>
 
@@ -84,7 +84,7 @@ export default function HomePage() {
           <div className="mt-10">
             <Link
               href="/biosyntar"
-              className="inline-flex items-center text-sm font-medium text-emerald-800 underline underline-offset-4 hover:text-emerald-700"
+              className="inline-flex items-center text-sm font-medium text-emerald-900 underline underline-offset-4 hover:text-emerald-700"
             >
               BioSyntar™ — technical overview
             </Link>
@@ -94,17 +94,17 @@ export default function HomePage() {
         {/* ------------------------------------------------- */}
         {/* PolyVerdia */}
         {/* ------------------------------------------------- */}
-        <article className="flex h-full flex-col justify-between rounded-xl border border-neutral-200 bg-white p-10 shadow-sm transition hover:shadow-md">
+        <article className="flex h-full flex-col justify-between rounded-xl border border-sky-200 bg-sky-50/60 p-10 shadow-sm transition hover:shadow-md">
           <div>
-            <h2 className="text-xl font-semibold text-sky-800">
+            <h2 className="text-xl font-semibold text-sky-900">
               PolyVerdia™
             </h2>
 
-            <p className="mt-3 text-sm font-medium tracking-wide text-neutral-500">
+            <p className="mt-3 text-sm font-medium tracking-wide text-sky-800">
               Moisture-active polymer protection
             </p>
 
-            <p className="mt-3 text-xs uppercase tracking-widest text-sky-700">
+            <p className="mt-3 text-[11px] uppercase tracking-wider text-sky-700">
               Problem domain: moisture-driven microbial growth in infrastructure
             </p>
 
@@ -131,7 +131,7 @@ export default function HomePage() {
           <div className="mt-10">
             <Link
               href="/polyverdia"
-              className="inline-flex items-center text-sm font-medium text-sky-800 underline underline-offset-4 hover:text-sky-700"
+              className="inline-flex items-center text-sm font-medium text-sky-900 underline underline-offset-4 hover:text-sky-700"
             >
               PolyVerdia™ — technical overview
             </Link>
