@@ -55,7 +55,7 @@ export default function PolyVerdiaPage() {
       </section>
 
       {/* ===================================================== */}
-      {/* SOLACE — GOVERNED MATERIALS RUNTIME */}
+      {/* SOLACE — GOVERNED MATERIALS RUNTIME → HUMAN REVIEW */}
       {/* ===================================================== */}
       <section className="mt-24 max-w-3xl rounded-xl border border-sky-200 bg-sky-50/60 p-8 dark:border-sky-800 dark:bg-sky-900/25">
         <h2 className="mb-3 text-xs font-medium uppercase tracking-widest text-sky-700 dark:text-sky-400">
@@ -77,6 +77,25 @@ export default function PolyVerdiaPage() {
           context="PolyVerdia™ materials overview"
           pageLabel="PolyVerdia™"
         />
+
+        {/* ===================================================== */}
+        {/* HUMAN REVIEW HANDOFF */}
+        {/* ===================================================== */}
+        <div className="mt-8 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+          <p>
+            Some questions require human review. If you’d like to reach the
+            Moral Clarity team, you can submit an inquiry.
+          </p>
+
+          <p className="mt-2">
+            <a
+              href="/contact?type=institutional"
+              className="font-medium text-sky-700 hover:underline dark:text-sky-400"
+            >
+              Submit an institutional or governance inquiry
+            </a>
+          </p>
+        </div>
       </section>
     </main>
   );
