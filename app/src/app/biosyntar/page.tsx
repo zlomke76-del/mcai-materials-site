@@ -4,17 +4,27 @@ export default function BioSyntarPage() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
       {/* ===================================================== */}
-      {/* HEADER */}
+      {/* HEADER / REGIME ENTRY */}
       {/* ===================================================== */}
-      <header className="mb-14 max-w-3xl">
+      <header className="mb-16 max-w-3xl">
         <h1 className="text-3xl font-semibold tracking-tight text-emerald-900 dark:text-emerald-100">
           BioSyntar™
         </h1>
 
-        <div className="mt-5 h-px w-20 bg-emerald-300 dark:bg-emerald-700" />
+        <div className="mt-5 h-px w-24 bg-emerald-400 dark:bg-emerald-700" />
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300">
-          Biologically inspired synthetic microfilms designed for food-contact
+        <p className="mt-4 text-xs font-medium uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+          Problem domain: food-contact surface contamination
+        </p>
+
+        <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
+          BioSyntar™ is designed where responsibility cannot be deferred — at the
+          material layer where food safety outcomes are shaped long before
+          handling, labeling, or policy can intervene.
+        </p>
+
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-800 dark:text-zinc-200">
+          Biologically inspired synthetic microfilms engineered for food-contact
           packaging and protective applications.
         </p>
       </header>
@@ -25,8 +35,9 @@ export default function BioSyntarPage() {
       <section className="max-w-3xl space-y-7">
         <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
           BioSyntar™ is a family of ultra-thin, biodegradable antibacterial
-          microfilms developed for food-contact packaging, including wraps,
-          liners, and protective films used in fresh and refrigerated foods.
+          microfilms developed for use in food-contact packaging, including
+          wraps, liners, and protective films used in fresh and refrigerated
+          foods.
         </p>
 
         <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
@@ -46,18 +57,18 @@ export default function BioSyntarPage() {
       {/* ===================================================== */}
       {/* SOLACE (SECONDARY / GOVERNED) */}
       {/* ===================================================== */}
-      <section className="mt-20 border-t border-emerald-200 pt-10 dark:border-emerald-800">
+      <section className="mt-24 border-t border-emerald-200 pt-12 dark:border-emerald-800">
         <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
           Reference & Clarification
         </h2>
 
-        <p className="mb-6 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+        <p className="mb-8 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
           Solace provides limited, informational responses related to BioSyntar™
           materials. It does not offer product recommendations, regulatory
           determinations, or usage instructions.
         </p>
 
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-5 dark:border-emerald-800 dark:bg-emerald-900/25">
           <SolacePanel context="BioSyntar™ materials overview" />
         </div>
       </section>
