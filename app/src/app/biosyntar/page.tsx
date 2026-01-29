@@ -1,4 +1,4 @@
-import SolacePanel from "@/components/SolacePanel";
+import MaterialsSolaceRuntime from "@/components/materials/MaterialsSolaceRuntime";
 
 export default function BioSyntarPage() {
   return (
@@ -55,7 +55,7 @@ export default function BioSyntarPage() {
       </section>
 
       {/* ===================================================== */}
-      {/* SOLACE — GOVERNED EXPLAINER */}
+      {/* SOLACE — GOVERNED EXPLAINER → ACCESS FLOW */}
       {/* ===================================================== */}
       <section className="mt-24 border-t border-emerald-200 pt-12 dark:border-emerald-800">
         <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
@@ -63,13 +63,19 @@ export default function BioSyntarPage() {
         </h2>
 
         <p className="mb-8 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Solace can answer general, high-level questions about BioSyntar™ using
-          only the information published on this page. It does not provide
-          operational instructions, regulatory advice, or performance claims.
+          Solace is a governed AI explainer. She can answer high-level questions
+          about BioSyntar™ using only the information published on this page.
+          <br />
+          <br />
+          She cannot provide operational instructions, regulatory advice, or
+          performance guarantees.
         </p>
 
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-5 dark:border-emerald-800 dark:bg-emerald-900/25">
-          <SolacePanel context="BioSyntar™ materials overview" />
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-6 dark:border-emerald-800 dark:bg-emerald-900/25">
+          <MaterialsSolaceRuntime
+            context="BioSyntar™ materials overview"
+            pageLabel="BioSyntar™"
+          />
         </div>
       </section>
     </main>
