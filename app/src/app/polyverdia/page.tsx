@@ -1,4 +1,4 @@
-import MaterialsSolacePanel from "@/components/materials/MaterialsSolacePanel";
+import SolacePanel from "@/components/SolacePanel";
 
 export default function PolyVerdiaPage() {
   return (
@@ -55,8 +55,7 @@ export default function PolyVerdiaPage() {
       </section>
 
       {/* ===================================================== */}
-      {/* SOLACE — GOVERNED MATERIALS EXPLAINER */}
-      {/* (D&D-STYLE, INLINE, INTERACTIVE) */}
+      {/* SOLACE — BASIC, GOVERNED EXPLAINER */}
       {/* ===================================================== */}
       <section className="mt-24 max-w-3xl rounded-xl border border-sky-200 bg-sky-50/60 p-8 dark:border-sky-800 dark:bg-sky-900/25">
         <h2 className="mb-3 text-xs font-medium uppercase tracking-widest text-sky-700 dark:text-sky-400">
@@ -64,16 +63,17 @@ export default function PolyVerdiaPage() {
         </h2>
 
         <p className="mb-6 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-          Solace can answer general, high-level questions about PolyVerdia™ using
-          only the information published on this page.
+          Solace is a governed AI explainer that can help answer general
+          questions about PolyVerdia™ materials using only the information
+          published on this site.
         </p>
 
         <p className="mb-6 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Solace does not provide operational instructions, maintenance
-          guidance, performance guarantees, or regulatory advice.
+          Solace cannot provide operational instructions, maintenance guidance,
+          performance guarantees, or regulatory advice.
         </p>
 
-        <MaterialsSolacePanel context="PolyVerdia™ materials overview" />
+        <SolacePanel context="PolyVerdia™ materials overview" />
       </section>
     </main>
   );
