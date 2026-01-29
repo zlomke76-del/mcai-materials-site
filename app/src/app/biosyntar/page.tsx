@@ -55,7 +55,7 @@ export default function BioSyntarPage() {
       </section>
 
       {/* ===================================================== */}
-      {/* SOLACE — GOVERNED EXPLAINER → ACCESS FLOW */}
+      {/* SOLACE — GOVERNED EXPLAINER → HUMAN REVIEW BOUNDARY */}
       {/* ===================================================== */}
       <section className="mt-24 border-t border-emerald-200 pt-12 dark:border-emerald-800">
         <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
@@ -76,6 +76,25 @@ export default function BioSyntarPage() {
             context="BioSyntar™ materials overview"
             pageLabel="BioSyntar™"
           />
+        </div>
+
+        {/* ===================================================== */}
+        {/* HUMAN REVIEW HANDOFF */}
+        {/* ===================================================== */}
+        <div className="mt-8 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+          <p>
+            Some questions require human review. If you’d like to reach the
+            Moral Clarity team, you can submit an inquiry.
+          </p>
+
+          <p className="mt-2">
+            <a
+              href="/contact?type=institutional"
+              className="font-medium text-emerald-700 hover:underline dark:text-emerald-400"
+            >
+              Submit an institutional or governance inquiry
+            </a>
+          </p>
         </div>
       </section>
     </main>
