@@ -1,197 +1,246 @@
 "use client";
 
 import { useState } from "react";
-import SolacePanel from "@/components/SolacePanel";
-
-/* ============================================================
-   Solace Materials Funnel — Authoritative Runtime
-   ============================================================ */
 
 type SolaceMode =
-  | "explainer"
-  | "interest-gate"
-  | "sales"
-  | "closed";
+  | "intro"
+  | "explain"
+  | "answer"
+  | "qualify"
+  | "email"
+  | "complete";
 
-type Props = {
+interface Props {
   context: string;
-  pageLabel: string; // e.g. "PolyVerdia™"
-};
-
-/* ------------------------------------------------------------
-   Conservative access-intent detector
------------------------------------------------------------- */
-function detectAccessIntent(text: string): boolean {
-  const t = text.toLowerCase();
-  return (
-    t.includes("buy") ||
-    t.includes("purchase") ||
-    t.includes("available") ||
-    t.includes("pricing") ||
-    t.includes("use this") ||
-    t.includes("deploy") ||
-    t.includes("who sells") ||
-    t.includes("next step") ||
-    t.includes("contact")
-  );
+  pageLabel: string;
 }
 
-/* ============================================================
-   MAIN
-============================================================ */
+/* ===================================================== */
+/* PRE-APPROVED ANSWER PATHS (REVIEWED CONTENT) */
+/* ===================================================== */
+
+type AnswerPath = {
+  id: string;
+  match: (q: string) => boolean;
+  response: string;
+};
+
+const ANSWER_PATHS: AnswerPath[] = [
+  {
+    id: "what-it-is",
+    match: (q) =>
+      /what is|what does|overview|define|purpose/i.test(q),
+    response: `Based on the information published on this site, ${pageLabel} is a moisture-active polymer platform designed to address conditions associated with microbial growth in infrastructure environments.
+
+It operates at the material layer, where outcomes are shaped before maintenance schedules, chemical treatments, or human intervention can respond.`,
+  },
+  {
+    id: "how-it-works",
+    match: (q) =>
+      /how does|how it works|mechanism|function/i.test(q),
+    response: `${pageLabel} focuses on material-level behavior rather than active treatment.
+
+The material is engineered to perform consistently within moisture-prone environments, supporting infrastructure hygiene without relying on dosing, schedules, or user-initiated action.`,
+  },
+  {
+    id: "where-used",
+    match: (q) =>
+      /where|use|used|hvac|environment|application/i.test(q),
+    response: `The material platform is intended for integration within infrastructure environments where moisture accumulation is known to occur, such as HVAC condensate zones and internal air-handling components.
+
+Specific installation details or suitability assessments require human review.`,
+  },
+  {
+    id: "boundaries",
+    match: (q) =>
+      /safe|safety|regulatory|approved|guarantee|performance/i.test(q),
+    response: `${pageLabel} does not provide performance guarantees, regulatory guidance, or operational instructions.
+
+I can help explain scope and intent, but questions involving compliance, efficacy claims, or deployment decisions require human oversight.`,
+  },
+];
+
+/* ===================================================== */
+/* COMPONENT */
+/* ===================================================== */
+
 export default function MaterialsSolaceRuntime({
   context,
   pageLabel,
 }: Props) {
-  const [mode, setMode] = useState<SolaceMode>("explainer");
+  const [mode, setMode] = useState<SolaceMode>("intro");
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState<string | null>(null);
   const [email, setEmail] = useState("");
-  const [locked, setLocked] = useState(false);
 
-  /* ----------------------------------------------------------
-     Mode guards
-  ---------------------------------------------------------- */
-  const allowInput = mode !== "interest-gate" && mode !== "closed";
+  function handleSubmitQuestion() {
+    const normalized = question.trim();
 
-  /* ----------------------------------------------------------
-     Event hooks passed into Solace
-     (non-invasive, message-level interception)
-  ---------------------------------------------------------- */
-  function handleUserMessage(text: string) {
-    if (mode === "explainer" && detectAccessIntent(text)) {
-      setMode("interest-gate");
-      return false; // block Solace send
+    const matchedPath = ANSWER_PATHS.find((path) =>
+      path.match(normalized)
+    );
+
+    if (matchedPath) {
+      setAnswer(matchedPath.response);
+    } else {
+      setAnswer(
+        `I don’t have a published answer for that question.
+
+Your question may involve site-specific conditions, operational decisions, or factors that require human review.`
+      );
     }
-    return true;
+
+    setMode("answer");
   }
 
-  /* ----------------------------------------------------------
-     Email submission
-  ---------------------------------------------------------- */
-  function submitEmail() {
-    if (!email.trim()) return;
-
-    // Minimal, audit-safe handoff
-    console.log("SOLACE MATERIALS HANDOFF", {
-      email,
-      page: pageLabel,
-      source: "solace-materials",
-      timestamp: Date.now(),
-    });
-
-    setLocked(true);
-    setMode("closed");
-  }
-
-  /* ============================================================
-     RENDER
-  ============================================================ */
   return (
-    <div className="space-y-6">
-      {/* ===================== EXPLAINER ===================== */}
-      {mode === "explainer" && (
-        <>
-          <p className="text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-            I can help explain these materials at a high level using only the
-            information published on this page.
-            <br />
-            <br />
-            I can’t provide operational instructions, performance guarantees,
-            regulatory determinations, or comparative claims.
-          </p>
+    <div className="space-y-5">
+      {/* ===================================================== */}
+      {/* SOLACE VOICE */}
+      {/* ===================================================== */}
+      <div className="text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+        {mode === "intro" && (
+          <>
+            <p className="font-medium text-zinc-900 dark:text-zinc-100">
+              I’m Solace.
+            </p>
+            <p className="mt-2">
+              I can answer general questions about{" "}
+              <span className="font-medium">{pageLabel}</span> using only the
+              information published on this site.
+            </p>
+            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+              I don’t infer, speculate, or provide operational guidance.
+            </p>
+          </>
+        )}
 
-          <SolacePanel
-            context={context}
-            allowSend={allowInput}
-            onBeforeSend={handleUserMessage}
-            modeHint="materials-explainer"
+        {mode === "explain" && (
+          <p>
+            Ask your question below. I’ll respond using approved,
+            page-scoped material only.
+          </p>
+        )}
+
+        {mode === "answer" && answer && (
+          <>
+            <p className="font-medium text-zinc-900 dark:text-zinc-100">
+              Here’s what I can share:
+            </p>
+            <div className="mt-3 rounded-md border border-zinc-200 bg-white p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900">
+              <p className="whitespace-pre-line">{answer}</p>
+            </div>
+          </>
+        )}
+
+        {mode === "qualify" && (
+          <p>
+            Some questions require human review. I can help route that if you’d
+            like.
+          </p>
+        )}
+
+        {mode === "email" && (
+          <p>
+            Leave an email address and someone from the materials team can
+            follow up.
+          </p>
+        )}
+
+        {mode === "complete" && (
+          <p>
+            Thank you. Your information has been noted.
+            <br />
+            A member of the materials team may reach out if appropriate.
+          </p>
+        )}
+      </div>
+
+      {/* ===================================================== */}
+      {/* INPUT ZONE */}
+      {/* ===================================================== */}
+      {mode === "intro" && (
+        <button
+          className="text-sm font-medium underline underline-offset-4 text-emerald-900 dark:text-emerald-300"
+          onClick={() => setMode("explain")}
+        >
+          Ask a question
+        </button>
+      )}
+
+      {mode === "explain" && (
+        <>
+          <textarea
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder={`Ask about ${pageLabel}…`}
+            className="w-full rounded-md border border-zinc-300 bg-white p-3 text-sm dark:border-zinc-700 dark:bg-zinc-900"
           />
+
+          <div className="flex gap-4">
+            <button
+              className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+              onClick={handleSubmitQuestion}
+              disabled={!question.trim()}
+            >
+              Ask Solace
+            </button>
+
+            <button
+              className="text-sm text-zinc-500"
+              onClick={() => setMode("intro")}
+            >
+              Cancel
+            </button>
+          </div>
         </>
       )}
 
-      {/* ================== INTEREST GATE ================== */}
-      {mode === "interest-gate" && (
-        <div className="rounded-lg border border-amber-300 bg-amber-50 p-4 dark:border-amber-700 dark:bg-amber-900/20">
-          <p className="mb-4 text-sm leading-6 text-zinc-800 dark:text-zinc-200">
-            I can continue explaining the material at a high level, or I can
-            switch to an access and interest discussion.
-            <br />
-            <br />
-            The access discussion involves sales follow-up and human review.
-            <br />
-            <br />
-            Which would you prefer?
-          </p>
+      {mode === "answer" && (
+        <div className="flex gap-4">
+          <button
+            className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+            onClick={() => setMode("qualify")}
+          >
+            Continue with human review
+          </button>
 
-          <div className="flex gap-3">
-            <button
-              onClick={() => setMode("explainer")}
-              className="rounded-md border border-zinc-300 px-4 py-2 text-sm dark:border-zinc-700"
-            >
-              Continue explanation
-            </button>
-
-            <button
-              onClick={() => setMode("sales")}
-              className="rounded-md bg-amber-500 px-4 py-2 text-sm font-medium text-black"
-            >
-              Discuss access / availability
-            </button>
-          </div>
+          <button
+            className="text-sm text-zinc-500"
+            onClick={() => setMode("intro")}
+          >
+            Done
+          </button>
         </div>
       )}
 
-      {/* ===================== SALES ===================== */}
-      {mode === "sales" && (
-        <div className="rounded-lg border border-sky-300 bg-sky-50 p-5 dark:border-sky-700 dark:bg-sky-900/25">
-          <p className="mb-4 text-sm leading-6 text-zinc-800 dark:text-zinc-200">
-            I’m switching from explainer mode to an access and interest
-            discussion.
-            <br />
-            <br />
-            In this mode, I may ask a small number of questions and may collect
-            contact information so a human team can follow up.
-          </p>
-
-          <p className="mb-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-            If you’d like to continue, you may leave an email address below.
-          </p>
-
-          <p className="mb-4 text-xs text-zinc-600 dark:text-zinc-400">
-            Your email will be used only to respond to this inquiry.
-            <br />
-            No marketing or automated outreach.
-          </p>
-
-          <div className="flex gap-2">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@company.com"
-              className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm dark:border-zinc-700"
-            />
-
-            <button
-              onClick={submitEmail}
-              className="rounded-md bg-sky-500 px-4 py-2 text-sm font-medium text-black"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
+      {mode === "qualify" && (
+        <button
+          className="text-sm font-medium underline underline-offset-4 text-emerald-900 dark:text-emerald-300"
+          onClick={() => setMode("email")}
+        >
+          Contact materials team
+        </button>
       )}
 
-      {/* ===================== CLOSED ===================== */}
-      {mode === "closed" && (
-        <div className="rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900/40">
-          <p className="text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-            Thank you. A human team member will review your inquiry and follow up
-            if appropriate.
-            <br />
-            <br />
-            This conversation is now closed.
-          </p>
-        </div>
+      {mode === "email" && (
+        <>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@company.com"
+            className="w-full rounded-md border border-zinc-300 bg-white p-3 text-sm dark:border-zinc-700 dark:bg-zinc-900"
+          />
+
+          <button
+            className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+            onClick={() => setMode("complete")}
+            disabled={!email}
+          >
+            Submit
+          </button>
+        </>
       )}
     </div>
   );
