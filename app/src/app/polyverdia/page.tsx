@@ -184,7 +184,7 @@ export default function PolyVerdiaPage() {
           </p>
 
           <a
-            href="/contact?type=institutional"
+            href="/inquiry"
             className="mt-3 inline-block text-sky-300 underline underline-offset-4 hover:text-sky-200"
           >
             Submit an institutional or governance inquiry
