@@ -4,6 +4,7 @@
 // Upgraded layout with hero, doctrine, visuals, and CTA
 // ============================================================
 
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -19,8 +20,21 @@ export default function HomePage() {
       {/* ===================================================== */}
       {/* HERO */}
       {/* ===================================================== */}
-      <section className="relative mx-auto max-w-6xl px-6 pt-28 pb-24">
-        <div className="max-w-3xl">
+      <section className="relative mx-auto max-w-6xl overflow-hidden px-6 pt-28 pb-24">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12]">
+          <Image
+            src="/assets/v1/image_hero_01.png"
+            alt="Material layer visualization"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(126,217,163,0.10),transparent_40%),radial-gradient(circle_at_75%_60%,rgba(122,162,255,0.10),transparent_40%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[#0A0F17]/70" />
+
+        <div className="relative z-10 max-w-3xl">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
             MCAI Materials
           </p>
@@ -31,19 +45,19 @@ export default function HomePage() {
             Control should not be.
           </h1>
 
-          <p className="mt-6 text-lg text-neutral-300 leading-relaxed">
-            These materials operate at the layer where outcomes are determined—
-            not after failure, but within the system itself.
+          <p className="mt-6 text-lg leading-relaxed text-neutral-300">
+            These materials operate at the layer where outcomes are
+            determined—not after failure, but within the system itself.
           </p>
 
-          <div className="mt-10 flex gap-4">
-            <button className="rounded-md bg-[#F7C86A] px-6 py-3 text-sm font-medium text-black hover:opacity-90">
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button className="rounded-md bg-[#F7C86A] px-6 py-3 text-sm font-medium text-black transition hover:opacity-90">
               Request Technical Brief
             </button>
 
             <a
               href="#materials"
-              className="rounded-md border border-neutral-600 px-6 py-3 text-sm text-neutral-300 hover:border-neutral-400"
+              className="rounded-md border border-neutral-600 px-6 py-3 text-sm text-neutral-300 transition hover:border-neutral-400"
             >
               Explore Materials
             </a>
@@ -73,6 +87,16 @@ export default function HomePage() {
       {/* FAILURE LAYER */}
       {/* ===================================================== */}
       <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="mb-12 flex justify-center">
+          <Image
+            src="/assets/v1/image_responsiblity_01.png"
+            alt="Responsibility layers"
+            width={700}
+            height={400}
+            className="rounded-lg opacity-80"
+          />
+        </div>
+
         <div className="grid gap-10 md:grid-cols-3">
           {[
             {
@@ -90,10 +114,10 @@ export default function HomePage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-neutral-800 bg-[#0E1522] p-6"
+              className="rounded-xl border border-neutral-800 bg-[#0E1522] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <h3 className="text-lg font-medium">{item.title}</h3>
-              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+              <p className="mt-3 text-sm leading-relaxed text-neutral-400">
                 {item.text}
               </p>
             </div>
@@ -104,14 +128,21 @@ export default function HomePage() {
       {/* ===================================================== */}
       {/* MATERIALS */}
       {/* ===================================================== */}
-      <section
-        id="materials"
-        className="mx-auto max-w-6xl px-6 py-20"
-      >
+      <section id="materials" className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           {/* BioSyntar */}
-          <article className="flex flex-col justify-between rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-10 transition hover:shadow-lg">
+          <article className="flex flex-col justify-between rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-10 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div>
+              <div className="mb-6 overflow-hidden rounded-md">
+                <Image
+                  src="/assets/v1/image_biosyntar_01.png"
+                  alt="BioSyntar antimicrobial layer"
+                  width={500}
+                  height={300}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+
               <h2 className="text-xl font-semibold text-emerald-300">
                 BioSyntar™
               </h2>
@@ -124,13 +155,13 @@ export default function HomePage() {
                 Status: Lab + Early Validation
               </p>
 
-              <p className="mt-6 text-neutral-300 leading-relaxed">
+              <p className="mt-6 leading-relaxed text-neutral-300">
                 BioSyntar™ is a family of ultra-thin, biodegradable microfilms
                 engineered for food-contact environments where surface-level
                 bacterial exposure matters.
               </p>
 
-              <p className="mt-4 text-neutral-400 leading-relaxed">
+              <p className="mt-4 leading-relaxed text-neutral-400">
                 Antimicrobial functionality is embedded directly into the
                 material structure, allowing protection to persist throughout
                 use without reliance on coatings or reactive treatments.
@@ -140,7 +171,7 @@ export default function HomePage() {
             <div className="mt-10">
               <Link
                 href="/biosyntar"
-                className="text-sm text-emerald-300 underline underline-offset-4 hover:text-emerald-200"
+                className="text-sm text-emerald-300 underline underline-offset-4 transition hover:text-emerald-200"
               >
                 View Technical Overview →
               </Link>
@@ -148,8 +179,18 @@ export default function HomePage() {
           </article>
 
           {/* PolyVerdia */}
-          <article className="flex flex-col justify-between rounded-xl border border-sky-400/20 bg-sky-400/5 p-10 transition hover:shadow-lg">
+          <article className="flex flex-col justify-between rounded-xl border border-sky-400/20 bg-sky-400/5 p-10 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div>
+              <div className="mb-6 overflow-hidden rounded-md">
+                <Image
+                  src="/assets/v1/image_polyverdia_01.png"
+                  alt="PolyVerdia moisture control"
+                  width={500}
+                  height={300}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+
               <h2 className="text-xl font-semibold text-sky-300">
                 PolyVerdia™
               </h2>
@@ -163,13 +204,13 @@ export default function HomePage() {
                 Status: Applied Research
               </p>
 
-              <p className="mt-6 text-neutral-300 leading-relaxed">
+              <p className="mt-6 leading-relaxed text-neutral-300">
                 PolyVerdia™ is a moisture-active polymer platform designed for
                 environments where condensation and microbial growth are
                 structurally difficult to eliminate.
               </p>
 
-              <p className="mt-4 text-neutral-400 leading-relaxed">
+              <p className="mt-4 leading-relaxed text-neutral-400">
                 It operates at the material layer—reducing reliance on recurring
                 chemical treatments or procedural controls in infrastructure
                 systems.
@@ -179,7 +220,7 @@ export default function HomePage() {
             <div className="mt-10">
               <Link
                 href="/polyverdia"
-                className="text-sm text-sky-300 underline underline-offset-4 hover:text-sky-200"
+                className="text-sm text-sky-300 underline underline-offset-4 transition hover:text-sky-200"
               >
                 View Technical Overview →
               </Link>
@@ -192,19 +233,34 @@ export default function HomePage() {
       {/* RESPONSIBILITY STACK */}
       {/* ===================================================== */}
       <section className="mx-auto max-w-4xl px-6 py-24 text-center">
-        <div className="space-y-3 text-sm text-neutral-400">
-          <div>Monitoring</div>
-          <div>Cleaning</div>
-          <div>Maintenance</div>
+        <div className="mb-10 flex justify-center">
+          <Image
+            src="/assets/v1/image_responsiblity_01.png"
+            alt="Material responsibility layer"
+            width={500}
+            height={300}
+            className="rounded-lg opacity-70"
+          />
         </div>
 
-        <div className="mt-6 border-t border-neutral-700 pt-6">
-          <p className="text-lg text-[#F7C86A]">
+        <div className="flex flex-col items-center space-y-3 text-sm text-neutral-400">
+          {["Monitoring", "Cleaning", "Maintenance"].map((item) => (
+            <div
+              key={item}
+              className="w-72 rounded-md border border-neutral-700 py-2 text-center"
+            >
+              {item}
+            </div>
+          ))}
+
+          <div className="my-4 w-72 border-t border-neutral-600" />
+
+          <div className="w-72 rounded-md border border-[#F7C86A] py-3 text-center font-medium text-[#F7C86A]">
             Material Behavior (Control Layer)
-          </p>
+          </div>
         </div>
 
-        <p className="mt-8 text-neutral-300 leading-relaxed">
+        <p className="mt-8 leading-relaxed text-neutral-300">
           Most systems rely on behavior.
           <br />
           We place responsibility where failure cannot be deferred.
@@ -232,10 +288,10 @@ export default function HomePage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-neutral-800 bg-[#0E1522] p-6"
+              className="rounded-xl border border-neutral-800 bg-[#0E1522] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <h3 className="text-lg font-medium">{item.title}</h3>
-              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+              <p className="mt-3 text-sm leading-relaxed text-neutral-400">
                 {item.text}
               </p>
             </div>
@@ -246,8 +302,8 @@ export default function HomePage() {
       {/* ===================================================== */}
       {/* FINAL CTA */}
       {/* ===================================================== */}
-      <section className="text-center px-6 py-24">
-        <p className="text-xl text-neutral-200 leading-relaxed">
+      <section className="px-6 py-24 text-center">
+        <p className="text-xl leading-relaxed text-neutral-200">
           This is not a product catalog.
           <br />
           <span className="text-white">
@@ -255,7 +311,7 @@ export default function HomePage() {
           </span>
         </p>
 
-        <button className="mt-10 rounded-md bg-[#F7C86A] px-8 py-4 text-sm font-medium text-black hover:opacity-90">
+        <button className="mt-10 rounded-md bg-[#F7C86A] px-8 py-4 text-sm font-medium text-black transition hover:opacity-90">
           Explore Partnership
         </button>
       </section>
@@ -264,10 +320,11 @@ export default function HomePage() {
       {/* FOOTER */}
       {/* ===================================================== */}
       <footer className="mx-auto max-w-3xl px-6 pb-20">
-        <p className="text-sm text-neutral-500 leading-relaxed">
-          This site presents high-level material information only. No commercial,
-          regulatory, or performance claims are made. Specific suitability and
-          compliance depend on application context and implementation.
+        <p className="text-sm leading-relaxed text-neutral-500">
+          This site presents high-level material information only. No
+          commercial, regulatory, or performance claims are made. Specific
+          suitability and compliance depend on application context and
+          implementation.
         </p>
       </footer>
     </main>
