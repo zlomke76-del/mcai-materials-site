@@ -25,8 +25,6 @@ export default function MaterialsSolaceRuntime({
   const [email, setEmail] = useState("");
 
   function handleSubmitQuestion() {
-    // GOVERNED PLACEHOLDER RESPONSE
-    // This makes the system honest and visible until a real Solace backend is connected.
     setAnswer(
       `Based on the information published on this site, ${pageLabel} is positioned as a material-level approach to addressing moisture-associated conditions that can contribute to microbial growth in infrastructure environments.
 
@@ -36,22 +34,22 @@ I can help explain the intent, scope, and boundaries of the material platform, b
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {/* ===================================================== */}
       {/* SOLACE VOICE */}
       {/* ===================================================== */}
-      <div className="text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+      <div className="text-sm leading-6 text-neutral-300">
         {mode === "intro" && (
           <>
-            <p className="font-medium text-zinc-900 dark:text-zinc-100">
-              I’m Solace.
-            </p>
+            <p className="font-medium text-white">I’m Solace.</p>
             <p className="mt-2">
               I can answer general questions about{" "}
-              <span className="font-medium">{pageLabel}</span> using only the
-              information published on this site.
+              <span className="font-medium text-sky-300">
+                {pageLabel}
+              </span>{" "}
+              using only the information published on this site.
             </p>
-            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+            <p className="mt-2 text-neutral-500">
               I can’t provide instructions, regulatory advice, or guarantees —
               but I can help explain intent, scope, and boundaries.
             </p>
@@ -59,39 +57,36 @@ I can help explain the intent, scope, and boundaries of the material platform, b
         )}
 
         {mode === "explain" && (
-          <p>
-            Ask your question below. I’ll stay within the published material
-            scope.
+          <p className="text-neutral-400">
+            Ask your question below. I’ll stay within the published material scope.
           </p>
         )}
 
         {mode === "answer" && answer && (
           <>
-            <p className="font-medium text-zinc-900 dark:text-zinc-100">
-              Here’s what I can share:
-            </p>
-            <div className="mt-3 rounded-md border border-zinc-200 bg-white p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900">
-              <p className="whitespace-pre-line">{answer}</p>
+            <p className="font-medium text-white">Here’s what I can share:</p>
+            <div className="mt-3 rounded-xl border border-sky-400/20 bg-[#0B111C] p-5 text-sm">
+              <p className="whitespace-pre-line text-neutral-300">
+                {answer}
+              </p>
             </div>
           </>
         )}
 
         {mode === "qualify" && (
-          <p>
-            Some questions require human review. I can help route that if you’d
-            like.
+          <p className="text-neutral-400">
+            Some questions require human review. I can help route that if you’d like.
           </p>
         )}
 
         {mode === "email" && (
-          <p>
-            Leave an email address and someone from the materials team can follow
-            up.
+          <p className="text-neutral-400">
+            Leave an email address and someone from the materials team can follow up.
           </p>
         )}
 
         {mode === "complete" && (
-          <p>
+          <p className="text-neutral-300">
             Thank you. Your information has been noted.
             <br />
             A member of the materials team may reach out if appropriate.
@@ -102,12 +97,13 @@ I can help explain the intent, scope, and boundaries of the material platform, b
       {/* ===================================================== */}
       {/* INPUT ZONE */}
       {/* ===================================================== */}
+
       {mode === "intro" && (
         <button
-          className="text-sm font-medium underline underline-offset-4 text-emerald-900 dark:text-emerald-300"
+          className="text-sm font-medium text-sky-300 hover:text-sky-200"
           onClick={() => setMode("explain")}
         >
-          Ask a question
+          Ask a question →
         </button>
       )}
 
@@ -117,12 +113,12 @@ I can help explain the intent, scope, and boundaries of the material platform, b
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder={`Ask about ${pageLabel}…`}
-            className="w-full rounded-md border border-zinc-300 bg-white p-3 text-sm dark:border-zinc-700 dark:bg-zinc-900"
+            className="w-full rounded-xl border border-sky-400/20 bg-[#0B111C] p-4 text-sm text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-sky-400/40"
           />
 
           <div className="flex gap-4">
             <button
-              className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+              className="text-sm font-medium text-emerald-400 hover:text-emerald-300 disabled:opacity-30"
               onClick={handleSubmitQuestion}
               disabled={!question.trim()}
             >
@@ -130,7 +126,7 @@ I can help explain the intent, scope, and boundaries of the material platform, b
             </button>
 
             <button
-              className="text-sm text-zinc-500"
+              className="text-sm text-neutral-500 hover:text-neutral-300"
               onClick={() => setMode("intro")}
             >
               Cancel
@@ -142,14 +138,14 @@ I can help explain the intent, scope, and boundaries of the material platform, b
       {mode === "answer" && (
         <div className="flex gap-4">
           <button
-            className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+            className="text-sm font-medium text-sky-300 hover:text-sky-200"
             onClick={() => setMode("qualify")}
           >
             Continue with human review
           </button>
 
           <button
-            className="text-sm text-zinc-500"
+            className="text-sm text-neutral-500 hover:text-neutral-300"
             onClick={() => setMode("intro")}
           >
             Done
@@ -159,10 +155,10 @@ I can help explain the intent, scope, and boundaries of the material platform, b
 
       {mode === "qualify" && (
         <button
-          className="text-sm font-medium underline underline-offset-4 text-emerald-900 dark:text-emerald-300"
+          className="text-sm font-medium text-sky-300 hover:text-sky-200"
           onClick={() => setMode("email")}
         >
-          Contact materials team
+          Contact materials team →
         </button>
       )}
 
@@ -173,11 +169,11 @@ I can help explain the intent, scope, and boundaries of the material platform, b
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
-            className="w-full rounded-md border border-zinc-300 bg-white p-3 text-sm dark:border-zinc-700 dark:bg-zinc-900"
+            className="w-full rounded-xl border border-sky-400/20 bg-[#0B111C] p-4 text-sm text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-sky-400/40"
           />
 
           <button
-            className="text-sm font-medium text-emerald-900 dark:text-emerald-300"
+            className="text-sm font-medium text-emerald-400 hover:text-emerald-300 disabled:opacity-30"
             onClick={() => setMode("complete")}
             disabled={!email}
           >
