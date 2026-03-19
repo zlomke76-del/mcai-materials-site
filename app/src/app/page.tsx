@@ -378,7 +378,7 @@ export default function HomePage() {
 
           <div className="mt-12">
             <a
-              href="/contact?type=institutional"
+              href="/inquiry"
               className="inline-flex rounded-md bg-[#F7C86A] px-10 py-4 text-sm font-medium text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(247,200,106,0.22)]"
             >
               Start Materials Inquiry
