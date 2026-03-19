@@ -41,33 +41,32 @@ const audiences = [
 
 export default function HomePage() {
   return (
-    <main className="bg-[#0A0F17] text-[#E9F0FA] selection:bg-[#F7C86A] selection:text-black">
+    <main className="text-[#E9F0FA]">
       {/* ============================================================ */}
-      {/* HERO — IMMERSIVE ENTRY */}
+      {/* HERO */}
       {/* ============================================================ */}
-      <section className="relative isolate overflow-hidden px-6 pt-32 pb-32 md:pt-36 md:pb-36">
-        <div className="absolute inset-0 opacity-[0.2]">
+      <section className="relative isolate overflow-hidden rounded-[28px] border border-white/8 bg-[#08111d] px-8 py-20 md:px-12 md:py-24 lg:px-16 lg:py-28">
+        <div className="absolute inset-0 opacity-[0.18]">
           <Image
             src="/assets/v1/image_hero_01.png"
             alt="Material system"
             fill
             priority
             unoptimized
-            className="object-cover scale-[1.03] transform-gpu"
+            className="object-cover"
           />
         </div>
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(126,217,163,0.16),transparent_34%),radial-gradient(circle_at_78%_30%,rgba(122,162,255,0.18),transparent_36%),radial-gradient(circle_at_52%_78%,rgba(247,200,106,0.08),transparent_24%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,15,23,0.70)_0%,rgba(10,15,23,0.82)_40%,rgba(10,15,23,0.96)_100%)]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(180deg,rgba(10,15,23,0)_0%,rgba(10,15,23,1)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(126,217,163,0.16),transparent_34%),radial-gradient(circle_at_80%_26%,rgba(122,162,255,0.18),transparent_36%),radial-gradient(circle_at_52%_78%,rgba(247,200,106,0.08),transparent_24%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,29,0.72)_0%,rgba(8,17,29,0.82)_40%,rgba(8,17,29,0.94)_100%)]" />
 
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative z-10 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="max-w-3xl">
             <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">
               MCAI Materials
             </p>
 
-            <h1 className="mt-8 text-5xl font-semibold leading-[0.96] md:text-6xl lg:text-7xl">
+            <h1 className="mt-8 text-5xl font-semibold leading-[0.96] md:text-6xl xl:text-7xl">
               Failure is invisible.
               <br />
               Control should not be.
@@ -94,13 +93,15 @@ export default function HomePage() {
               </a>
             </div>
           </div>
+
+          <div className="hidden lg:block" />
         </div>
       </section>
 
       {/* ============================================================ */}
       {/* DESIGN PRINCIPLE */}
       {/* ============================================================ */}
-      <section className="px-6 py-24 text-center">
+      <section className="px-2 py-24 text-center">
         <div className="mx-auto max-w-4xl">
           <p className="text-sm tracking-wide text-[#F7C86A]">
             ⚖️ Design Principle
@@ -120,16 +121,24 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* FAILURE DOMAINS */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-6xl px-6 py-12">
-        <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-            Failure Domains
+      <section className="py-8">
+        <div className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              Failure Domains
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight md:text-4xl">
+              The conditions are persistent.
+              <br />
+              The response cannot be procedural alone.
+            </h2>
+          </div>
+
+          <p className="max-w-xl text-sm leading-7 text-neutral-400 lg:justify-self-end">
+            These are not intermittent edge cases. They are structural
+            environments where contamination, moisture, and operational burden
+            recur unless control is placed deeper in the system.
           </p>
-          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-            The conditions are persistent.
-            <br className="hidden md:block" />
-            The response cannot be procedural alone.
-          </h2>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
@@ -151,26 +160,26 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* MATERIALS */}
       {/* ============================================================ */}
-      <section id="materials" className="mx-auto max-w-6xl px-6 py-28">
-        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <section id="materials" className="py-28">
+        <div className="mb-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
               Material Platforms
             </p>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold leading-tight md:text-4xl">
               Two environments.
-              <br className="hidden md:block" />
+              <br />
               One control philosophy.
             </h2>
           </div>
 
-          <p className="max-w-xl text-sm leading-7 text-neutral-400">
+          <p className="max-w-2xl text-sm leading-7 text-neutral-400 lg:justify-self-end">
             The platforms are differentiated by environment, failure mode, and
             material behavior—but unified by where responsibility is placed.
           </p>
         </div>
 
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="grid gap-10 xl:grid-cols-2">
           <article className="group rounded-2xl border border-emerald-400/20 bg-[linear-gradient(180deg,rgba(16,185,129,0.07)_0%,rgba(14,21,34,0.98)_34%)] p-7 md:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(0,0,0,0.45)]">
             <div className="overflow-hidden rounded-xl border border-emerald-300/10 bg-white/[0.02]">
               <Image
@@ -264,9 +273,9 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* CONTROL LAYER — CENTERPIECE */}
+      {/* CONTROL LAYER */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden px-6 py-32 text-center">
+      <section className="relative overflow-hidden py-32 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(247,200,106,0.08),transparent_26%)]" />
 
         <div className="relative mx-auto max-w-5xl">
@@ -274,7 +283,7 @@ export default function HomePage() {
             Most systems rely on intervention.
           </p>
 
-          <h2 className="mt-4 text-3xl font-semibold md:text-5xl">
+          <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
             We move responsibility
             <br className="hidden md:block" />
             beneath intervention.
@@ -322,7 +331,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* AUDIENCE */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="py-20">
         <div className="mb-8">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
             Designed For
@@ -349,7 +358,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       <section
         id="inquiry"
-        className="relative overflow-hidden px-6 py-32 text-center"
+        className="relative overflow-hidden py-32 text-center"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,200,106,0.08),transparent_28%)]" />
 
@@ -381,7 +390,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* FOOTER */}
       {/* ============================================================ */}
-      <footer className="mx-auto max-w-3xl px-6 pb-20">
+      <footer className="mx-auto max-w-3xl pb-20 text-center md:text-left">
         <p className="text-sm leading-7 text-neutral-500">
           This site presents high-level material information only. No
           commercial, regulatory, or performance claims are made. Specific
