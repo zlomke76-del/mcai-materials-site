@@ -27,6 +27,7 @@ export default function HomePage() {
             alt="Material layer visualization"
             fill
             priority
+            unoptimized
             className="object-cover"
           />
         </div>
@@ -93,6 +94,7 @@ export default function HomePage() {
             alt="Responsibility layers"
             width={700}
             height={400}
+            unoptimized
             className="rounded-lg opacity-80"
           />
         </div>
@@ -139,6 +141,7 @@ export default function HomePage() {
                   alt="BioSyntar antimicrobial layer"
                   width={500}
                   height={300}
+                  unoptimized
                   className="h-auto w-full object-cover"
                 />
               </div>
@@ -187,6 +190,7 @@ export default function HomePage() {
                   alt="PolyVerdia moisture control"
                   width={500}
                   height={300}
+                  unoptimized
                   className="h-auto w-full object-cover"
                 />
               </div>
@@ -239,6 +243,7 @@ export default function HomePage() {
             alt="Material responsibility layer"
             width={500}
             height={300}
+            unoptimized
             className="rounded-lg opacity-70"
           />
         </div>
