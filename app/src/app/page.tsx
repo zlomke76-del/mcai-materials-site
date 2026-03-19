@@ -1,4 +1,4 @@
-// app/page.tsx
+// app/src/app/page.tsx
 // ============================================================
 // MCAI MATERIALS — CONTROL AT THE MATERIAL LAYER
 // Upgraded layout with hero, doctrine, visuals, and CTA
@@ -17,10 +17,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-[#0A0F17] text-[#E9F0FA]">
-      {/* ===================================================== */}
-      {/* HERO */}
-      {/* ===================================================== */}
-      <section className="relative mx-auto max-w-6xl overflow-hidden px-6 pt-28 pb-24">
+      <section className="relative mx-auto max-w-6xl overflow-hidden px-6 pb-24 pt-28">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]">
           <Image
             src="/assets/v1/image_hero_01.png"
@@ -66,9 +63,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===================================================== */}
-      {/* DESIGN PRINCIPLE */}
-      {/* ===================================================== */}
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
         <p className="text-sm tracking-wide text-[#F7C86A]">
           ⚖️ Design Principle
@@ -84,9 +78,6 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* ===================================================== */}
-      {/* FAILURE LAYER */}
-      {/* ===================================================== */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="mb-12 flex justify-center">
           <Image
@@ -127,12 +118,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===================================================== */}
-      {/* MATERIALS */}
-      {/* ===================================================== */}
       <section id="materials" className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-          {/* BioSyntar */}
           <article className="flex flex-col justify-between rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-10 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div>
               <div className="mb-6 overflow-hidden rounded-md">
@@ -181,7 +168,6 @@ export default function HomePage() {
             </div>
           </article>
 
-          {/* PolyVerdia */}
           <article className="flex flex-col justify-between rounded-xl border border-sky-400/20 bg-sky-400/5 p-10 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div>
               <div className="mb-6 overflow-hidden rounded-md">
@@ -233,9 +219,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===================================================== */}
-      {/* RESPONSIBILITY STACK */}
-      {/* ===================================================== */}
       <section className="mx-auto max-w-4xl px-6 py-24 text-center">
         <div className="mb-10 flex justify-center">
           <Image
@@ -272,9 +255,6 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* ===================================================== */}
-      {/* WHO THIS IS FOR */}
-      {/* ===================================================== */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-3">
           {[
@@ -304,9 +284,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===================================================== */}
-      {/* FINAL CTA */}
-      {/* ===================================================== */}
       <section className="px-6 py-24 text-center">
         <p className="text-xl leading-relaxed text-neutral-200">
           This is not a product catalog.
@@ -321,9 +298,6 @@ export default function HomePage() {
         </button>
       </section>
 
-      {/* ===================================================== */}
-      {/* FOOTER */}
-      {/* ===================================================== */}
       <footer className="mx-auto max-w-3xl px-6 pb-20">
         <p className="text-sm leading-relaxed text-neutral-500">
           This site presents high-level material information only. No
