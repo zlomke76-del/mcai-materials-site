@@ -47,6 +47,7 @@ export default function PolyVerdiaPage() {
               height={700}
               className="h-full w-full object-cover"
               priority
+              unoptimized
             />
           </div>
         </div>
@@ -63,6 +64,7 @@ export default function PolyVerdiaPage() {
             width={1400}
             height={400}
             className="w-full object-cover"
+            unoptimized
           />
         </div>
       </section>
@@ -144,6 +146,7 @@ export default function PolyVerdiaPage() {
             width={1400}
             height={600}
             className="w-full object-cover"
+            unoptimized
           />
         </div>
       </section>
@@ -174,9 +177,6 @@ export default function PolyVerdiaPage() {
           />
         </div>
 
-        {/* ===================================================== */}
-        {/* HUMAN REVIEW HANDOFF */}
-        {/* ===================================================== */}
         <div className="mt-8 text-sm text-neutral-400">
           <p>
             Some questions require human review. If you’d like to reach the
@@ -194,4 +194,3 @@ export default function PolyVerdiaPage() {
     </main>
   );
 }
-
