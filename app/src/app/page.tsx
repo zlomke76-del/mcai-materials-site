@@ -45,7 +45,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* HERO */}
       {/* ============================================================ */}
-      <section className="relative isolate overflow-hidden rounded-[28px] border border-white/8 bg-[#08111d] px-8 py-20 md:px-12 md:py-24 lg:px-16 lg:py-28">
+      <section className="relative isolate overflow-hidden border-b border-white/10 ...">
         <div className="absolute inset-0 opacity-[0.18]">
           <Image
             src="/assets/v1/image_hero_01.png"
