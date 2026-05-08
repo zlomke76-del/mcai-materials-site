@@ -13,108 +13,66 @@ export default function Home() {
 
   return (
     <main className="global-gpi-poster">
-      {/* BACKGROUND */}
       <img
         src="/images/background_image.png"
         alt="Global GPI Background"
         className="global-gpi-image"
       />
 
-      {/* TOP LOGO */}
-      <div className="hero-logo-wrap">
-        <img
-          src="/images/logo.png"
-          alt="Global GPI"
-          className="hero-logo"
-        />
-      </div>
+      <img src="/images/logo.png" alt="Global GPI" className="hero-logo" />
 
-      {/* LEFT MATERIALS PANEL */}
       <section className="materials-panel">
         <div className="materials-header">
           <div className="materials-icon">◌</div>
-
           <h2>SUSTAINABLE MATERIALS</h2>
-
-          <p>
-            Advanced materials for a cleaner, healthier world.
-          </p>
+          <p>Advanced materials for a cleaner, healthier world.</p>
         </div>
 
         <a className="material-card" href="/materials/biosyntar">
-          <img
-            src="/images/biosyntar_hero.png"
-            alt="BioSyntar"
-          />
-
+          <img src="/images/biosyntar_hero.png" alt="BioSyntar" />
           <div>
             <h3>BioSyntar</h3>
-
             <p>
-              Biodegradable antibacterial microfilms for
-              food safety and food-contact packaging.
+              Biodegradable antibacterial microfilms for food safety and
+              food-contact packaging.
             </p>
           </div>
         </a>
 
         <a className="material-card" href="/materials/polyverdia">
-          <img
-            src="/images/polyverdia_hero.png"
-            alt="PolyVerdia"
-          />
-
+          <img src="/images/polyverdia_hero.png" alt="PolyVerdia" />
           <div>
             <h3>PolyVerdia</h3>
-
             <p>
-              Moisture-active protection for HVAC systems.
-              Helps reduce microbial growth where it starts.
+              Moisture-active protection for HVAC systems. Helps reduce
+              microbial growth where it starts.
             </p>
           </div>
         </a>
 
-        <a
-          className="material-card"
-          href="/materials/single-use-plastics"
-        >
-          <img
-            src="/images/single_use_hero.png"
-            alt="Single Use Plastics"
-          />
-
+        <a className="material-card" href="/materials/single-use-plastics">
+          <img src="/images/single_use_hero.png" alt="Single-Use Plastics" />
           <div>
             <h3>Single-Use Plastics</h3>
-
             <p>
-              Designed for performance in use and rapid
-              end-of-life. Biodegradable or recyclable
-              solutions.
+              Designed for performance in use and rapid end-of-life.
+              Biodegradable or recyclable solutions.
             </p>
           </div>
         </a>
 
-        <a
-          className="material-card phantom-card"
-          href="/materials/phantomfiber"
-        >
-          <img
-            src="/images/phantomfiber_hero.png"
-            alt="PhantomFiber"
-          />
-
+        <a className="material-card phantom-card" href="/materials/phantomfiber">
+          <img src="/images/phantomfiber_hero.png" alt="PhantomFiber" />
           <div>
             <h3>PhantomFiber™</h3>
-
             <p>
-              Proprietary platform technology that delivers
-              embedded antibacterial performance at the
-              material level.
+              Proprietary platform technology that delivers embedded
+              antibacterial performance at the material level.
             </p>
           </div>
         </a>
       </section>
 
-      {/* CENTER VIDEO */}
       <div className="earth-video-wrap">
         <video
           ref={videoRef}
@@ -124,17 +82,10 @@ export default function Home() {
           loop
           playsInline
         >
-          <source
-            src="/video/earth_01.mp4"
-            type="video/mp4"
-          />
+          <source src="/video/earth_01.mp4" type="video/mp4" />
         </video>
 
-        <img
-          src="/images/overlay_video.png"
-          alt=""
-          className="earth-overlay"
-        />
+        <img src="/images/overlay_video.png" alt="" className="earth-overlay" />
       </div>
     </main>
   );
