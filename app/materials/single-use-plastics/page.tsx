@@ -11,7 +11,7 @@ export default function SingleUsePlasticsPage() {
     },
     {
       title: "Retail Carry Systems",
-      image: "/images/single_use_plastics/application_grid_01.png",
+      image: "/images/single_use_plastics/application_grid_02.png",
       bullets: [
         "Shopping bags and lightweight carriers",
         "High usability during deployment",
@@ -20,7 +20,7 @@ export default function SingleUsePlasticsPage() {
     },
     {
       title: "Medical / Sanitary Systems",
-      image: "/images/single_use_plastics/application_grid_01.png",
+      image: "/images/single_use_plastics/application_grid_03.png",
       bullets: [
         "Controlled-use disposables",
         "Contamination-sensitive environments",
@@ -29,7 +29,7 @@ export default function SingleUsePlasticsPage() {
     },
     {
       title: "Agricultural Films",
-      image: "/images/single_use_plastics/application_grid_01.png",
+      image: "/images/single_use_plastics/application_grid_04.png",
       bullets: [
         "Row covers and greenhouse systems",
         "Seasonal deployment materials",
@@ -38,7 +38,7 @@ export default function SingleUsePlasticsPage() {
     },
     {
       title: "Industrial Packaging",
-      image: "/images/single_use_plastics/application_grid_01.png",
+      image: "/images/single_use_plastics/application_grid_05.png",
       bullets: [
         "Protective wraps and liners",
         "Logistics-ready material systems",
@@ -47,7 +47,7 @@ export default function SingleUsePlasticsPage() {
     },
     {
       title: "Consumer Goods Packaging",
-      image: "/images/single_use_plastics/application_grid_01.png",
+      image: "/images/single_use_plastics/application_grid_06.png",
       bullets: [
         "Flexible commercial packaging",
         "Supports sustainability initiatives",
