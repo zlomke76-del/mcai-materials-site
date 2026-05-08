@@ -64,7 +64,7 @@ export default function Home() {
           </div>
         </a>
 
-        <a className="material-card phantom-card" href="/materials/phantomfiber">
+        <a className="material-card phantom-card" href="https://neuroviaapplieddefense.com/">
           <img src="/images/phantomfiber_hero.png" alt="PhantomFiber" />
           <div>
             <h3>PhantomFiber™</h3>
