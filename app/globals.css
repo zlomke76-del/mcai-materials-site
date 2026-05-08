@@ -1,3 +1,6 @@
+# globals.css
+
+```css
 * {
   box-sizing: border-box;
 }
@@ -20,40 +23,72 @@ a {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
-  background: #f7f9fb;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.98) 0%, rgba(245,248,252,0.96) 32%, rgba(240,244,248,0.92) 52%, rgba(231,238,245,0.74) 72%, rgba(220,230,240,0.55) 100%),
+    linear-gradient(90deg, rgba(7,92,46,0.12) 0%, rgba(255,255,255,0.95) 46%, rgba(19,91,170,0.10) 100%);
 }
 
 .global-gpi-image {
   width: 100%;
   height: auto;
   display: block;
+  opacity: 0.82;
 }
 
-/* TOP LOGO */
+/* HERO */
 
-.hero-logo {
+.hero-top {
   position: absolute;
-  top: 24px;
+  top: 28px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 60;
+  text-align: center;
+  width: min(900px, 92vw);
+}
+
+.hero-logo {
   width: auto;
   height: 92px;
-  max-width: 460px;
-  z-index: 40;
   object-fit: contain;
   display: block;
-  pointer-events: none;
+  margin: 0 auto 12px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(40px, 4vw, 64px);
+  line-height: 1.05;
+  font-weight: 900;
+  color: #08285f;
+  letter-spacing: -0.03em;
+}
+
+.hero-title .green {
+  color: #0b7a3b;
+}
+
+.hero-title .blue {
+  color: #135ec2;
+}
+
+.hero-subtitle {
+  margin-top: 18px;
+  color: #4b5563;
+  font-size: clamp(18px, 1.6vw, 28px);
+  line-height: 1.35;
+  font-weight: 500;
 }
 
 /* LEFT MATERIALS PANEL */
 
 .materials-panel {
   position: absolute;
-  top: 214px;
-  left: 95px;
-  width: 435px;
-  z-index: 25;
+  top: 250px;
+  left: 78px;
+  width: 450px;
+  z-index: 30;
 }
 
 .materials-header {
@@ -65,22 +100,23 @@ a {
   color: #0d6536;
   font-size: 42px;
   line-height: 1;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .materials-header h2 {
   margin: 0;
   color: #075c2e;
-  font-size: 20px;
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 34px;
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
 .materials-header p {
-  margin: 8px 0 0;
-  color: #111827;
-  font-size: 12px;
+  margin: 10px 0 0;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .material-card {
@@ -88,40 +124,41 @@ a {
   grid-template-columns: 188px 1fr;
   gap: 18px;
   align-items: center;
-  min-height: 104px;
-  margin-bottom: 10px;
-  padding: 8px 18px 8px 10px;
-  border-radius: 16px;
+  min-height: 108px;
+  margin-bottom: 14px;
+  padding: 10px 18px 10px 10px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.72);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10);
+  backdrop-filter: blur(10px);
 }
 
 .material-card img {
   width: 188px;
-  height: 86px;
+  height: 90px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   display: block;
 }
 
 .material-card h3 {
-  margin: 0 0 7px;
+  margin: 0 0 8px;
   color: #075c2e;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.1;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .material-card p {
   margin: 0;
   color: #111827;
-  font-size: 12px;
-  line-height: 1.36;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .phantom-card {
-  min-height: 122px;
+  min-height: 130px;
   background: linear-gradient(135deg, #075f35 0%, #04723f 55%, #026133 100%);
 }
 
@@ -131,23 +168,25 @@ a {
 }
 
 .phantom-card img {
-  height: 104px;
+  height: 112px;
 }
 
-/* CENTER EARTH VIDEO */
+/* CENTER EARTH */
 
 .earth-video-wrap {
   position: absolute;
-  top: 268px;
+  top: 290px;
   left: 50%;
   transform: translateX(-50%);
-  width: 488px;
-  height: 548px;
-  border-radius: 34px;
+  width: 560px;
+  height: 620px;
+  border-radius: 36px;
   overflow: hidden;
-  z-index: 20;
-  pointer-events: none;
+  z-index: 25;
   background: #020814;
+  box-shadow:
+    0 30px 70px rgba(2, 8, 20, 0.38),
+    0 0 0 1px rgba(255,255,255,0.08);
 }
 
 .earth-video {
@@ -162,30 +201,176 @@ a {
 .earth-overlay {
   position: absolute;
   left: 50%;
-  bottom: -18px;
+  bottom: 14px;
   transform: translateX(-50%);
-  width: 92%;
-  height: auto;
-  z-index: 5;
+  width: 90%;
+  z-index: 10;
   pointer-events: none;
+}
+
+/* RIGHT AI PANEL */
+
+.ai-panel {
+  position: absolute;
+  top: 248px;
+  right: 78px;
+  width: 430px;
+  z-index: 30;
+}
+
+.ai-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.ai-header h2 {
+  margin: 0;
+  color: #0d2f74;
+  font-size: 34px;
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.ai-header p {
+  margin: 10px 0 0;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.ai-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 18px;
+  align-items: center;
+  min-height: 116px;
+  margin-bottom: 14px;
+  padding: 10px 18px 10px 10px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 14px 34px rgba(15,23,42,0.10);
+  backdrop-filter: blur(10px);
+}
+
+.ai-image-placeholder {
+  width: 160px;
+  height: 92px;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(5,22,59,1) 0%, rgba(10,52,126,1) 55%, rgba(9,112,201,1) 100%);
+  border: 1px solid rgba(255,255,255,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-image-placeholder::before {
+  content: "IMAGE";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.82);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.ai-card h3 {
+  margin: 0 0 8px;
+  color: #0d47b5;
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 900;
+}
+
+.ai-card p {
+  margin: 0;
+  color: #111827;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.governance-card {
+  margin-top: 18px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(240,246,255,0.92);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 14px 34px rgba(15,23,42,0.08);
+}
+
+.governance-card h3 {
+  margin: 0 0 10px;
+  color: #0d47b5;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.governance-card p {
+  margin: 0;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* FOOTER BAND */
+
+.footer-band {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  width: min(1100px, 86vw);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #062760 0%, #0d47b5 48%, #0a6f3d 100%);
+  padding: 20px 34px;
+  text-align: center;
+  z-index: 50;
+  box-shadow: 0 20px 40px rgba(5,22,59,0.18);
+}
+
+.footer-band p {
+  margin: 0;
+  color: white;
+  font-size: clamp(18px, 1.4vw, 24px);
+  font-weight: 800;
+  letter-spacing: 0.16em;
 }
 
 /* MOBILE */
 
-@media (max-width: 1100px) {
+@media (max-width: 1500px) {
   .materials-panel {
-    display: none;
+    left: 34px;
+    width: 410px;
   }
 
-  .hero-logo {
-    height: 70px;
+  .ai-panel {
+    right: 34px;
+    width: 390px;
   }
 
   .earth-video-wrap {
-    top: 18vw;
-    width: 32vw;
-    height: 39vw;
-    border-radius: 2vw;
+    width: 500px;
+    height: 580px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .materials-panel,
+  .ai-panel {
+    display: none;
+  }
+
+  .earth-video-wrap {
+    top: 300px;
+    width: 60vw;
+    height: 68vw;
+    max-width: 580px;
+    max-height: 680px;
   }
 }
 
@@ -194,13 +379,197 @@ a {
     display: none;
   }
 
-  .hero-logo {
-    height: 54px;
+  .hero-top {
     top: 18px;
   }
 
-  .global-gpi-image {
-    width: 160%;
-    margin-left: -30%;
+  .hero-logo {
+    height: 58px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .footer-band {
+    bottom: 24px;
+    width: calc(100vw - 28px);
+    padding: 16px 20px;
+  }
+
+  .footer-band p {
+    font-size: 12px;
+    letter-spacing: 0.12em;
   }
 }
+```
+
+---
+
+# page.tsx
+
+```tsx
+export default function Page() {
+  return (
+    <main className="global-gpi-poster">
+      <img
+        src="/images/background-composite.jpg"
+        alt="Global GPI"
+        className="global-gpi-image"
+      />
+
+      <section className="hero-top">
+        <img
+          src="/images/logo.png"
+          alt="Global GPI"
+          className="hero-logo"
+        />
+
+        <h1 className="hero-title">
+          Engineering <span className="green">Safer</span> Materials.
+          <br />
+          Empowering <span className="blue">Intelligent</span> Systems.
+        </h1>
+
+        <p className="hero-subtitle">
+          Two Pillars. One Purpose. A Sustainable Future.
+        </p>
+      </section>
+
+      <section className="materials-panel">
+        <div className="materials-header">
+          <div className="materials-icon">◌</div>
+          <h2>SUSTAINABLE MATERIALS</h2>
+          <p>
+            Advanced materials engineered for cleaner infrastructure,
+            safer packaging, and measurable environmental impact.
+          </p>
+        </div>
+
+        <div className="material-card">
+          <img src="/images/biosyntar.jpg" alt="BioSyntar" />
+          <div>
+            <h3>BioSyntar</h3>
+            <p>
+              Biodegradable antibacterial microfilms for food safety
+              and food-contact packaging.
+            </p>
+          </div>
+        </div>
+
+        <div className="material-card">
+          <img src="/images/polyverdia.jpg" alt="PolyVerdia" />
+          <div>
+            <h3>PolyVerdia</h3>
+            <p>
+              Moisture-active protection for HVAC systems that helps
+              reduce microbial growth where it starts.
+            </p>
+          </div>
+        </div>
+
+        <div className="material-card">
+          <img src="/images/plastics.jpg" alt="Single Use Plastics" />
+          <div>
+            <h3>Single-Use Plastics</h3>
+            <p>
+              Biodegradable and recyclable performance materials designed
+              for modern consumer and industrial use.
+            </p>
+          </div>
+        </div>
+
+        <div className="material-card phantom-card">
+          <img src="/images/phantomfiber.jpg" alt="PhantomFiber" />
+          <div>
+            <h3>PhantomFiber™</h3>
+            <p>
+              Proprietary platform technology delivering embedded
+              antibacterial performance directly at the material level.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="earth-video-wrap">
+        <video
+          className="earth-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/videos/earth.mp4" type="video/mp4" />
+        </video>
+
+        <img
+          src="/images/earth-overlay.png"
+          alt="Overlay"
+          className="earth-overlay"
+        />
+      </section>
+
+      <section className="ai-panel">
+        <div className="ai-header">
+          <h2>AI SYSTEMS</h2>
+          <p>
+            Execution-time AI systems built for accountability,
+            governance, operational trust, and measurable outcomes.
+          </p>
+        </div>
+
+        <div className="ai-card">
+          <div className="ai-image-placeholder" />
+          <div>
+            <h3>SolaceMed</h3>
+            <p>
+              Intelligent systems for healthcare operations,
+              compliance workflows, and patient-centered infrastructure.
+            </p>
+          </div>
+        </div>
+
+        <div className="ai-card">
+          <div className="ai-image-placeholder" />
+          <div>
+            <h3>SolaceLegal</h3>
+            <p>
+              AI systems for legal operations, research,
+              governance review, and document intelligence.
+            </p>
+          </div>
+        </div>
+
+        <div className="ai-card">
+          <div className="ai-image-placeholder" />
+          <div>
+            <h3>SolaceTrade</h3>
+            <p>
+              AI-driven systems for trade intelligence,
+              risk analysis, valuation workflows, and commercial operations.
+            </p>
+          </div>
+        </div>
+
+        <div className="governance-card">
+          <h3>Built on Moral Clarity</h3>
+          <p>
+            Not what AI recommends — what AI is allowed to do.
+            Ethical. Transparent. Aligned.
+          </p>
+        </div>
+      </section>
+
+      <div className="footer-band">
+        <p>
+          MATERIAL SCIENCE. INTELLIGENT SYSTEMS. MEASURABLE IMPACT.
+        </p>
+      </div>
+    </main>
+  )
+}
+```
