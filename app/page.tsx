@@ -1,23 +1,31 @@
-export default function Page() {
+"use client";
+
+import { useEffect, useRef } from "react";
+
+export default function Home() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.45;
+    }
+  }, []);
+
   return (
     <main className="global-gpi-poster">
       <img
-        src="/images/background-composite.jpg"
-        alt="Global GPI"
+        src="/images/background_image.png"
+        alt="Global GPI Background"
         className="global-gpi-image"
       />
 
-      <section className="hero-top">
-        <img
-          src="/images/logo.png"
-          alt="Global GPI"
-          className="hero-logo"
-        />
+      <section className="hero-content" aria-label="Global GPI hero">
+        <img src="/images/logo.png" alt="Global GPI" className="hero-logo" />
 
         <h1 className="hero-title">
-          Engineering <span className="green">Safer</span> Materials.
+          Engineering <span>Safer</span> Materials.
           <br />
-          Empowering <span className="blue">Intelligent</span> Systems.
+          Empowering <strong>Intelligent</strong> Systems.
         </h1>
 
         <p className="hero-subtitle">
@@ -25,135 +33,152 @@ export default function Page() {
         </p>
       </section>
 
-      <section className="materials-panel">
+      <section className="materials-panel" aria-label="Sustainable materials">
         <div className="materials-header">
           <div className="materials-icon">◌</div>
           <h2>SUSTAINABLE MATERIALS</h2>
-          <p>
-            Advanced materials engineered for cleaner infrastructure,
-            safer packaging, and measurable environmental impact.
-          </p>
+          <p>Advanced materials for a cleaner, healthier world.</p>
         </div>
 
-        <div className="material-card">
-          <img src="/images/biosyntar.jpg" alt="BioSyntar" />
+        <a className="material-card" href="/materials/biosyntar">
+          <img src="/images/biosyntar_hero.png" alt="BioSyntar" />
           <div>
             <h3>BioSyntar</h3>
             <p>
-              Biodegradable antibacterial microfilms for food safety
-              and food-contact packaging.
+              Biodegradable antibacterial microfilms for food safety and
+              food-contact packaging.
             </p>
           </div>
-        </div>
+        </a>
 
-        <div className="material-card">
-          <img src="/images/polyverdia.jpg" alt="PolyVerdia" />
+        <a className="material-card" href="/materials/polyverdia">
+          <img src="/images/polyverdia_hero.png" alt="PolyVerdia" />
           <div>
             <h3>PolyVerdia</h3>
             <p>
-              Moisture-active protection for HVAC systems that helps
-              reduce microbial growth where it starts.
+              Moisture-active protection for HVAC systems. Helps reduce
+              microbial growth where it starts.
             </p>
           </div>
-        </div>
+        </a>
 
-        <div className="material-card">
-          <img src="/images/plastics.jpg" alt="Single Use Plastics" />
+        <a className="material-card" href="/materials/single-use-plastics">
+          <img src="/images/single_use_hero.png" alt="Single-Use Plastics" />
           <div>
             <h3>Single-Use Plastics</h3>
             <p>
-              Biodegradable and recyclable performance materials designed
-              for modern consumer and industrial use.
+              Designed for performance in use and rapid end-of-life.
+              Biodegradable or recyclable solutions.
             </p>
           </div>
-        </div>
+        </a>
 
-        <div className="material-card phantom-card">
-          <img src="/images/phantomfiber.jpg" alt="PhantomFiber" />
+        <a className="material-card phantom-card" href="/materials/phantomfiber">
+          <img src="/images/phantomfiber_hero.png" alt="PhantomFiber" />
           <div>
             <h3>PhantomFiber™</h3>
             <p>
-              Proprietary platform technology delivering embedded
-              antibacterial performance directly at the material level.
+              Proprietary platform technology that delivers embedded
+              antibacterial performance at the material level.
             </p>
           </div>
-        </div>
+        </a>
       </section>
 
-      <section className="earth-video-wrap">
+      <div className="earth-video-wrap" aria-hidden="true">
         <video
+          ref={videoRef}
           className="earth-video"
           autoPlay
           muted
           loop
           playsInline
         >
-          <source src="/videos/earth.mp4" type="video/mp4" />
+          <source src="/video/earth_01.mp4" type="video/mp4" />
         </video>
 
-        <img
-          src="/images/earth-overlay.png"
-          alt="Overlay"
-          className="earth-overlay"
-        />
-      </section>
+        <img src="/images/overlay_video.png" alt="" className="earth-overlay" />
+      </div>
 
-      <section className="ai-panel">
+      <section className="ai-panel" aria-label="AI systems">
         <div className="ai-header">
+          <div className="ai-icon">⌬</div>
           <h2>AI SYSTEMS</h2>
-          <p>
-            Execution-time AI systems built for accountability,
-            governance, operational trust, and measurable outcomes.
-          </p>
+          <p>Powered by Moral Clarity</p>
+          <small>Execution-time AI. Controlled. Trusted. Accountable.</small>
         </div>
 
-        <div className="ai-card">
-          <div className="ai-image-placeholder" />
+        <a className="ai-card" href="/ai/solacemed">
+          <div className="ai-image-placeholder" aria-hidden="true">
+            <span>IMAGE</span>
+          </div>
           <div>
             <h3>SolaceMed</h3>
             <p>
-              Intelligent systems for healthcare operations,
-              compliance workflows, and patient-centered infrastructure.
+              Intelligent systems for healthcare operations, compliance, and
+              patient outcomes.
             </p>
           </div>
-        </div>
+        </a>
 
-        <div className="ai-card">
-          <div className="ai-image-placeholder" />
+        <a className="ai-card" href="/ai/solacelegal">
+          <div className="ai-image-placeholder" aria-hidden="true">
+            <span>IMAGE</span>
+          </div>
           <div>
             <h3>SolaceLegal</h3>
             <p>
-              AI systems for legal operations, research,
-              governance review, and document intelligence.
+              AI systems for legal workflows, research, compliance, and
+              document intelligence.
             </p>
           </div>
-        </div>
+        </a>
 
-        <div className="ai-card">
-          <div className="ai-image-placeholder" />
+        <a className="ai-card" href="/ai/solacetrade">
+          <div className="ai-image-placeholder" aria-hidden="true">
+            <span>IMAGE</span>
+          </div>
           <div>
             <h3>SolaceTrade</h3>
             <p>
-              AI-driven systems for trade intelligence,
-              risk analysis, valuation workflows, and commercial operations.
+              AI solutions for trade intelligence, risk analysis, valuation,
+              and commercial operations.
+            </p>
+          </div>
+        </a>
+
+        <div className="moral-clarity-card">
+          <div className="shield-placeholder" aria-hidden="true">✓</div>
+          <div>
+            <h3>Built on Moral Clarity</h3>
+            <p>
+              Not what AI recommends — what AI is allowed to do. Ethical.
+              Transparent. Aligned.
             </p>
           </div>
         </div>
+      </section>
 
-        <div className="governance-card">
-          <h3>Built on Moral Clarity</h3>
-          <p>
-            Not what AI recommends — what AI is allowed to do.
-            Ethical. Transparent. Aligned.
-          </p>
+      <section className="solutions-strip" aria-label="Solutions for the real world">
+        <div className="solutions-title">
+          <span />
+          <h2>SOLUTIONS FOR THE REAL WORLD</h2>
+          <span />
+        </div>
+
+        <div className="solution-items">
+          <div>FOOD SAFETY &amp;<br />PACKAGING</div>
+          <div>AIR QUALITY &amp;<br />HVAC SYSTEMS</div>
+          <div>HEALTHCARE<br />INFRASTRUCTURE</div>
+          <div>INDUSTRIAL &amp;<br />MANUFACTURING</div>
+          <div>CONSUMER &amp;<br />EVERYDAY USE</div>
+          <div>ENVIRONMENTAL<br />STEWARDSHIP</div>
         </div>
       </section>
 
       <div className="footer-band">
-        <p>
-          MATERIAL SCIENCE. INTELLIGENT SYSTEMS. MEASURABLE IMPACT.
-        </p>
+        <p>MATERIAL SCIENCE. INTELLIGENT SYSTEMS. MEASURABLE IMPACT.</p>
       </div>
     </main>
-  )
+  );
 }
