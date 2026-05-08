@@ -37,13 +37,16 @@ a {
   top: 268px;
   left: 50%;
   transform: translateX(-50%);
-  width: 462px;
-  height: 552px;
+  width: 488px;
+  height: 548px;
   border-radius: 34px;
   overflow: hidden;
   z-index: 20;
   pointer-events: none;
   background: #020814;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 20px 60px rgba(0,0,0,0.38);
 }
 
 .earth-video-wrap::before {
@@ -54,26 +57,27 @@ a {
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.05) 0%,
-      rgba(0, 0, 0, 0.05) 68%,
-      rgba(0, 8, 20, 0.68) 84%,
-      rgba(0, 8, 20, 0.96) 100%
+      rgba(0,0,0,0.02) 0%,
+      rgba(0,0,0,0.02) 68%,
+      rgba(0,10,24,0.52) 82%,
+      rgba(0,10,24,0.94) 100%
     );
 }
 
 .earth-video-wrap::after {
-  content: "🛡️  SAFER MATERIALS     🍃  STRONGER PLANET     🧠  SMARTER SYSTEMS     ♙  BETTER OUTCOMES";
+  content:
+    "SAFER MATERIALS      STRONGER PLANET      SMARTER SYSTEMS      BETTER OUTCOMES";
   position: absolute;
-  left: 26px;
-  right: 26px;
-  bottom: 26px;
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
   z-index: 3;
-  color: #ffffff;
-  font-size: 13px;
-  line-height: 1.35;
+  color: rgba(255,255,255,0.92);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
   text-align: center;
-  letter-spacing: 0.02em;
-  white-space: normal;
 }
 
 .earth-video {
@@ -81,13 +85,7 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-/* INTERNAL PAGES */
-
-.internal-page {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 64px 28px;
+  transform: scale(1.18);
 }
 
 /* MOBILE */
