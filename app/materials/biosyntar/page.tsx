@@ -191,8 +191,33 @@ export default function BioSyntarPage() {
       <section className="biosyntar-section" id="science">
         <div className="biosyntar-container">
           <div className="biosyntar-heading">
+            <span>Materials Science</span>
+            <h2>Advanced Science. Proven Performance.</h2>
+            <p>
+              Development focuses on antibacterial efficacy, film clarity,
+              barrier performance, mechanical durability, biodegradability, and
+              food-contact readiness under realistic operating conditions.
+            </p>
+          </div>
+
+          <div className="biosyntar-validation-panel">
+            <div>
+              <span className="biosyntar-panel-kicker">Validation Focus</span>
+              <h3>Measured across the full food-packaging lifecycle.</h3>
+            </div>
+
+            <div className="biosyntar-validation-list">
+              <p>Materials characterization</p>
+              <p>Antibacterial efficacy testing</p>
+              <p>Moisture and barrier performance</p>
+              <p>Shelf-life simulation</p>
+              <p>Mechanical durability</p>
+              <p>Responsible end-of-life evaluation</p>
+            </div>
+          </div>
+
           <div className="biosyntar-technical-grid">
-            {technicalImages.slice(1).map((image) => (
+            {technicalImages.map((image) => (
               <img key={image} src={image} alt="BioSyntar technical validation" />
             ))}
           </div>
@@ -243,5 +268,3 @@ export default function BioSyntarPage() {
     </main>
   );
 }
-
-      
