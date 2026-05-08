@@ -1757,12 +1757,12 @@ a{
   }
 }
 
-/* BioSyntar expanded materials page */
+/* BioSyntar expanded materials page - v2 */
 .biosyntar-page{
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,.96) 0%,
+      rgba(255,255,255,.95) 0%,
       rgba(239,248,244,.97) 100%
     ),
     url("/images/background_image.png");
@@ -1786,7 +1786,7 @@ a{
     linear-gradient(
       180deg,
       rgba(255,255,255,.84),
-      rgba(229,244,238,.94)
+      rgba(232,246,239,.94)
     );
 }
 
@@ -1816,8 +1816,8 @@ a{
   background:
     radial-gradient(
       circle at center,
-      rgba(10,95,175,.18),
-      rgba(0,112,60,.12),
+      rgba(0,112,60,.2),
+      rgba(13,71,181,.1),
       transparent 72%
     );
   z-index:0;
@@ -1895,7 +1895,7 @@ a{
     linear-gradient(
       135deg,
       #08306f 0%,
-      #1266cf 50%,
+      #145dc2 50%,
       #08753f 100%
     );
   color:#fff;
@@ -2011,7 +2011,7 @@ a{
 
 .biosyntar-banner-section{
   padding:0;
-  background:#f8fbff;
+  background:#031224;
 }
 
 .biosyntar-banner-image{
@@ -2019,7 +2019,66 @@ a{
   display:block;
 }
 
-.biosyntar-technical-grid,
+.biosyntar-validation-panel{
+  display:grid;
+  grid-template-columns:minmax(280px,420px) 1fr;
+  gap:34px;
+  align-items:start;
+  margin-bottom:34px;
+  padding:34px;
+  border-radius:30px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.96),
+      rgba(236,247,243,.92)
+    );
+  box-shadow:0 28px 70px rgba(15,23,42,.1);
+  border:1px solid rgba(255,255,255,.72);
+}
+
+.biosyntar-panel-kicker{
+  display:inline-block;
+  margin-bottom:12px;
+  color:#08753f;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.biosyntar-validation-panel h3{
+  margin:0;
+  color:#072d57;
+  font-size:34px;
+  line-height:1.06;
+  font-weight:900;
+  letter-spacing:-.035em;
+}
+
+.biosyntar-validation-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.biosyntar-validation-list p{
+  margin:0;
+  padding:15px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.82);
+  color:#1f2937;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 10px 24px rgba(15,23,42,.08);
+}
+
+.biosyntar-technical-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
 .biosyntar-industrial-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -2030,6 +2089,7 @@ a{
 .biosyntar-technical-grid img,
 .biosyntar-industrial-grid img{
   width:100%;
+  height:260px;
   border-radius:24px;
   object-fit:cover;
   box-shadow:0 20px 50px rgba(15,23,42,.14);
@@ -2057,8 +2117,8 @@ a{
   background:
     linear-gradient(
       135deg,
-      rgba(255,255,255,.98) 0%,
-      rgba(237,249,243,.95) 100%
+      rgba(255,255,255,.97) 0%,
+      rgba(237,248,243,.94) 100%
     );
   box-shadow:
     0 40px 100px rgba(2,8,20,.16),
@@ -2100,9 +2160,16 @@ a{
   }
 
   .biosyntar-applications-grid,
-  .biosyntar-technical-grid,
   .biosyntar-industrial-grid{
     grid-template-columns:1fr 1fr;
+  }
+
+  .biosyntar-technical-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .biosyntar-validation-panel{
+    grid-template-columns:1fr;
   }
 
   .biosyntar-copy h1{
@@ -2119,7 +2186,8 @@ a{
 
   .biosyntar-applications-grid,
   .biosyntar-technical-grid,
-  .biosyntar-industrial-grid{
+  .biosyntar-industrial-grid,
+  .biosyntar-validation-list{
     grid-template-columns:1fr;
   }
 
@@ -2144,5 +2212,19 @@ a{
 
   .biosyntar-card-content{
     padding:24px;
+  }
+
+  .biosyntar-validation-panel{
+    padding:24px;
+    border-radius:24px;
+  }
+
+  .biosyntar-validation-panel h3{
+    font-size:28px;
+  }
+
+  .biosyntar-technical-grid img,
+  .biosyntar-industrial-grid img{
+    height:auto;
   }
 }
