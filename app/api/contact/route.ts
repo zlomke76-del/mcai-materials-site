@@ -1,72 +1,56 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-const TO_EMAIL = "craymond@global-gpi.com";
-const FROM_EMAIL = "Global GPI Website <onboarding@resend.dev>";
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
+    const body = await req.json();
 
-    const name = String(body.name || "").trim();
-    const email = String(body.email || "").trim();
-    const phone = String(body.phone || "").trim();
-    const company = String(body.company || "").trim();
-    const message = String(body.message || "").trim();
+    const {
+      name,
+      company,
+      email,
+      phone,
+      message,
+    } = body;
 
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Name, email, and message are required." },
-        { status: 400 }
-      );
-    }
+    await resend.emails.send({
+      from: "Global GPI <contact@global-gpi.com>",
+      to: ["charlie@global-gpi.com"],
+      replyTo: email,
+      subject: `Global GPI Inquiry from ${name}`,
+      html: `
+        <div style="font-family:Arial,sans-serif;padding:20px;">
+          <h2>New Global GPI Inquiry</h2>
 
-    const resendApiKey = process.env.RESEND_API_KEY;
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Company:</strong> ${company || "-"}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || "-"}</p>
 
-    if (!resendApiKey) {
-      return NextResponse.json(
-        { error: "Email service is not configured." },
-        { status: 500 }
-      );
-    }
+          <hr style="margin:20px 0;" />
 
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: TO_EMAIL,
-        reply_to: email,
-        subject: `New Global GPI Contact: ${name}`,
-        html: `
-          <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111827">
-            <h2>New Global GPI Website Inquiry</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-            <p><strong>Company:</strong> ${company || "Not provided"}</p>
-            <hr />
-            <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, "<br />")}</p>
-          </div>
-        `,
-      }),
+          <p><strong>Message:</strong></p>
+
+          <p>${message}</p>
+        </div>
+      `,
     });
 
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: "Email failed to send." },
-        { status: 500 }
-      );
-    }
+    return NextResponse.json({
+      success: true,
+    });
+  } catch (error) {
+    console.error(error);
 
-    return NextResponse.json({ ok: true });
-  } catch {
     return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
+      {
+        success: false,
+      },
+      {
+        status: 500,
+      }
     );
   }
 }
