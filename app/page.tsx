@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
+  const [contactOpen, setContactOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -13,7 +15,9 @@ export default function Home() {
     message: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     if (videoRef.current) {
@@ -48,7 +52,12 @@ export default function Home() {
         phone: "",
         message: "",
       });
-    } catch (err) {
+
+      setTimeout(() => {
+        setContactOpen(false);
+        setStatus("idle");
+      }, 2000);
+    } catch {
       setStatus("error");
     }
   }
@@ -62,7 +71,11 @@ export default function Home() {
       />
 
       <section className="hero-top" aria-label="Global GPI hero message">
-        <img src="/images/logo.png" alt="Global GPI" className="hero-logo" />
+        <img
+          src="/images/logo.png"
+          alt="Global GPI"
+          className="hero-logo"
+        />
 
         <h1 className="hero-title">
           Engineering <span className="green">Safer</span> Materials.
@@ -75,7 +88,10 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="materials-panel" aria-label="Sustainable materials">
+      <section
+        className="materials-panel"
+        aria-label="Sustainable materials"
+      >
         <div className="materials-header">
           <div className="materials-icon" aria-hidden="true">
             ◌
@@ -89,32 +105,41 @@ export default function Home() {
         </div>
 
         <a className="material-card" href="/materials/biosyntar">
-          <img src="/images/biosyntar_hero.png" alt="BioSyntar" />
+          <img
+            src="/images/biosyntar_hero.png"
+            alt="BioSyntar"
+          />
 
           <div>
             <h3>BioSyntar</h3>
 
             <p>
-              Biodegradable antibacterial microfilms for food safety and
-              food-contact packaging.
+              Biodegradable antibacterial microfilms for food safety
+              and food-contact packaging.
             </p>
           </div>
         </a>
 
         <a className="material-card" href="/materials/polyverdia">
-          <img src="/images/polyverdia_hero.png" alt="PolyVerdia" />
+          <img
+            src="/images/polyverdia_hero.png"
+            alt="PolyVerdia"
+          />
 
           <div>
             <h3>PolyVerdia</h3>
 
             <p>
-              Moisture-active protection for HVAC systems. Helps reduce
-              microbial growth where it starts.
+              Moisture-active protection for HVAC systems. Helps
+              reduce microbial growth where it starts.
             </p>
           </div>
         </a>
 
-        <a className="material-card" href="/materials/single-use-plastics">
+        <a
+          className="material-card"
+          href="/materials/single-use-plastics"
+        >
           <img
             src="/images/single_use_hero.png"
             alt="Single-Use Plastics"
@@ -161,7 +186,10 @@ export default function Home() {
           loop
           playsInline
         >
-          <source src="/video/earth_01.mp4" type="video/mp4" />
+          <source
+            src="/video/earth_01.mp4"
+            type="video/mp4"
+          />
         </video>
 
         <img
@@ -269,78 +297,121 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact-form-panel" aria-label="Contact Global GPI">
-        <h2>Contact Us</h2>
+      <button
+        className="contact-open-button"
+        type="button"
+        onClick={() => setContactOpen(true)}
+      >
+        Contact Us
+      </button>
 
-        <p>
-          Connect directly with Charlie and the Global GPI team.
-        </p>
+      {contactOpen && (
+        <div className="contact-modal-backdrop">
+          <section
+            className="contact-form-panel"
+            aria-label="Contact Global GPI"
+          >
+            <button
+              className="contact-close"
+              type="button"
+              onClick={() => setContactOpen(false)}
+            >
+              ×
+            </button>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Full Name"
-            required
-            value={formData.name}
-            onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
-            }
-          />
+            <h2>Contact Global GPI</h2>
 
-          <input
-            type="text"
-            placeholder="Company"
-            value={formData.company}
-            onChange={(e) =>
-              setFormData({ ...formData, company: e.target.value })
-            }
-          />
+            <p>
+              Send a direct inquiry to Charlie and the Global GPI team.
+            </p>
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            required
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
+              <input
+                type="text"
+                placeholder="Full Name"
+                required
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    name: e.target.value,
+                  })
+                }
+              />
 
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
-          />
+              <input
+                type="text"
+                placeholder="Company"
+                value={formData.company}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    company: e.target.value,
+                  })
+                }
+              />
 
-          <textarea
-            placeholder="Tell us about your project, partnership interest, or inquiry..."
-            required
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-          />
+              <input
+                type="email"
+                placeholder="Email Address"
+                required
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    email: e.target.value,
+                  })
+                }
+              />
 
-          <button type="submit">
-            {status === "sending" ? "Sending..." : "Send Message"}
-          </button>
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    phone: e.target.value,
+                  })
+                }
+              />
 
-          {status === "success" && (
-            <div className="contact-success">
-              Message sent successfully.
-            </div>
-          )}
+              <textarea
+                placeholder="Tell us about your project, partnership interest, or inquiry..."
+                required
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    message: e.target.value,
+                  })
+                }
+              />
 
-          {status === "error" && (
-            <div className="contact-error">
-              Unable to send message. Please try again.
-            </div>
-          )}
-        </form>
-      </section>
+              <button type="submit">
+                {status === "sending"
+                  ? "Sending..."
+                  : "Send Message"}
+              </button>
+
+              {status === "success" && (
+                <div className="contact-success">
+                  Message sent successfully.
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="contact-error">
+                  Unable to send message. Please try again.
+                </div>
+              )}
+            </form>
+          </section>
+        </div>
+      )}
 
       <div
         className="footer-band"
