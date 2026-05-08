@@ -16,17 +16,13 @@ a {
   text-decoration: none;
 }
 
-/* MAIN POSTER */
-
 .global-gpi-poster {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #f7f9fb;
 }
-
-/* BACKGROUND IMAGE */
 
 .global-gpi-image {
   width: 100%;
@@ -36,99 +32,97 @@ a {
 
 /* TOP LOGO */
 
-.hero-logo-wrap {
+.hero-logo {
   position: absolute;
-  top: 36px;
+  top: 24px;
   left: 50%;
   transform: translateX(-50%);
+  width: auto;
+  height: 92px;
+  max-width: 460px;
   z-index: 40;
-  pointer-events: none;
-}
-
-.hero-logo {
-  width: 520px;
-  height: auto;
+  object-fit: contain;
   display: block;
+  pointer-events: none;
 }
 
 /* LEFT MATERIALS PANEL */
 
 .materials-panel {
   position: absolute;
-  left: 84px;
-  top: 250px;
-  width: 380px;
-  z-index: 20;
+  top: 214px;
+  left: 95px;
+  width: 435px;
+  z-index: 25;
 }
 
 .materials-header {
-  margin-bottom: 18px;
+  text-align: center;
+  margin-bottom: 22px;
 }
 
 .materials-icon {
-  font-size: 28px;
-  color: #0d6c3d;
-  margin-bottom: 6px;
+  color: #0d6536;
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 2px;
 }
 
 .materials-header h2 {
   margin: 0;
-  color: #0d6c3d;
-  font-size: 28px;
+  color: #075c2e;
+  font-size: 20px;
+  line-height: 1.1;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
 .materials-header p {
   margin: 8px 0 0;
-  color: #333;
-  font-size: 15px;
+  color: #111827;
+  font-size: 12px;
 }
 
 .material-card {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 18px;
-  padding: 12px;
-  margin-bottom: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: 180ms ease;
-}
-
-.material-card:hover {
-  transform: translateY(-2px);
+  display: grid;
+  grid-template-columns: 188px 1fr;
+  gap: 18px;
+  align-items: center;
+  min-height: 104px;
+  margin-bottom: 10px;
+  padding: 8px 18px 8px 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(8px);
 }
 
 .material-card img {
-  width: 175px;
-  height: 92px;
+  width: 188px;
+  height: 86px;
   object-fit: cover;
-  border-radius: 12px;
-  flex-shrink: 0;
+  border-radius: 10px;
+  display: block;
 }
 
 .material-card h3 {
-  margin: 2px 0 8px;
-  color: #0d6c3d;
-  font-size: 20px;
+  margin: 0 0 7px;
+  color: #075c2e;
+  font-size: 17px;
+  line-height: 1.1;
   font-weight: 800;
 }
 
 .material-card p {
   margin: 0;
-  color: #333;
-  font-size: 14px;
-  line-height: 1.45;
+  color: #111827;
+  font-size: 12px;
+  line-height: 1.36;
 }
 
 .phantom-card {
-  background: linear-gradient(
-    135deg,
-    #005a2f 0%,
-    #04743b 100%
-  );
+  min-height: 122px;
+  background: linear-gradient(135deg, #075f35 0%, #04723f 55%, #026133 100%);
 }
 
 .phantom-card h3,
@@ -136,58 +130,77 @@ a {
   color: white;
 }
 
-/* CENTER VIDEO */
+.phantom-card img {
+  height: 104px;
+}
+
+/* CENTER EARTH VIDEO */
 
 .earth-video-wrap {
   position: absolute;
+  top: 268px;
   left: 50%;
-  top: 304px;
   transform: translateX(-50%);
-  width: 492px;
+  width: 488px;
+  height: 548px;
   border-radius: 34px;
   overflow: hidden;
-  z-index: 15;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+  z-index: 20;
+  pointer-events: none;
+  background: #020814;
 }
 
 .earth-video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
+  transform: scale(1.12);
 }
-
-/* VIDEO OVERLAY */
 
 .earth-overlay {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  bottom: -18px;
   transform: translateX(-50%);
-  width: 86%;
-  z-index: 30;
+  width: 92%;
+  height: auto;
+  z-index: 5;
   pointer-events: none;
 }
 
 /* MOBILE */
 
-@media (max-width: 1200px) {
-  .hero-logo {
-    width: 360px;
+@media (max-width: 1100px) {
+  .materials-panel {
+    display: none;
   }
 
-  .materials-panel {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: calc(100% - 40px);
-    margin: 180px auto 0;
+  .hero-logo {
+    height: 70px;
   }
 
   .earth-video-wrap {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    width: 92%;
-    margin: 40px auto;
+    top: 18vw;
+    width: 32vw;
+    height: 39vw;
+    border-radius: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .earth-video-wrap {
+    display: none;
+  }
+
+  .hero-logo {
+    height: 54px;
+    top: 18px;
+  }
+
+  .global-gpi-image {
+    width: 160%;
+    margin-left: -30%;
   }
 }
