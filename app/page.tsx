@@ -17,6 +17,12 @@ export default function Home() {
         >
           <source src="/video/earth_01.mp4" type="video/mp4" />
         </video>
+
+        <img
+          src="/images/overlay_video.png"
+          alt=""
+          className="earth-overlay"
+        />
       </div>
     </main>
   );
