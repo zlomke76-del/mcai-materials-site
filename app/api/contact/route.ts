@@ -1,19 +1,40 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+      console.error("Missing RESEND_API_KEY environment variable");
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email service is not configured.",
+        },
+        {
+          status: 500,
+        }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const body = await req.json();
 
-    const {
-      name,
-      company,
-      email,
-      phone,
-      message,
-    } = body;
+    const { name, company, email, phone, message } = body;
+
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Name, email, and message are required.",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
 
     await resend.emails.send({
       from: "Global GPI <contact@global-gpi.com>",
@@ -32,7 +53,6 @@ export async function POST(req: Request) {
           <hr style="margin:20px 0;" />
 
           <p><strong>Message:</strong></p>
-
           <p>${message}</p>
         </div>
       `,
@@ -47,6 +67,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         success: false,
+        error: "Unable to send message.",
       },
       {
         status: 500,
