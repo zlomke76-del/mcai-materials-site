@@ -19,13 +19,13 @@ export default function Home() {
         className="global-gpi-image"
       />
 
-      <section className="hero-content" aria-label="Global GPI hero">
+      <section className="hero-top" aria-label="Global GPI hero message">
         <img src="/images/logo.png" alt="Global GPI" className="hero-logo" />
 
         <h1 className="hero-title">
-          Engineering <span>Safer</span> Materials.
+          Engineering <span className="green">Safer</span> Materials.
           <br />
-          Empowering <strong>Intelligent</strong> Systems.
+          Empowering <span className="blue">Intelligent</span> Systems.
         </h1>
 
         <p className="hero-subtitle">
@@ -35,7 +35,9 @@ export default function Home() {
 
       <section className="materials-panel" aria-label="Sustainable materials">
         <div className="materials-header">
-          <div className="materials-icon">◌</div>
+          <div className="materials-icon" aria-hidden="true">
+            ◌
+          </div>
           <h2>SUSTAINABLE MATERIALS</h2>
           <p>Advanced materials for a cleaner, healthier world.</p>
         </div>
@@ -102,16 +104,18 @@ export default function Home() {
 
       <section className="ai-panel" aria-label="AI systems">
         <div className="ai-header">
-          <div className="ai-icon">⌬</div>
-          <h2>AI SYSTEMS</h2>
-          <p>Powered by Moral Clarity</p>
-          <small>Execution-time AI. Controlled. Trusted. Accountable.</small>
+          <div className="ai-icon" aria-hidden="true">
+            ⬡
+          </div>
+          <h2>
+            AI SYSTEMS
+            <span>Powered by Moral Clarity</span>
+          </h2>
+          <p>Execution-time AI. Controlled. Trusted. Accountable.</p>
         </div>
 
-        <a className="ai-card" href="/ai/solacemed">
-          <div className="ai-image-placeholder" aria-hidden="true">
-            <span>IMAGE</span>
-          </div>
+        <a className="ai-card" href="https://www.solacemed.ai">
+          <div className="ai-image-placeholder" aria-hidden="true" />
           <div>
             <h3>SolaceMed</h3>
             <p>
@@ -121,10 +125,8 @@ export default function Home() {
           </div>
         </a>
 
-        <a className="ai-card" href="/ai/solacelegal">
-          <div className="ai-image-placeholder" aria-hidden="true">
-            <span>IMAGE</span>
-          </div>
+        <a className="ai-card" href="https://www.solacelegal.ai">
+          <div className="ai-image-placeholder" aria-hidden="true" />
           <div>
             <h3>SolaceLegal</h3>
             <p>
@@ -134,10 +136,8 @@ export default function Home() {
           </div>
         </a>
 
-        <a className="ai-card" href="/ai/solacetrade">
-          <div className="ai-image-placeholder" aria-hidden="true">
-            <span>IMAGE</span>
-          </div>
+        <a className="ai-card" href="https://www.solacetrade.ai">
+          <div className="ai-image-placeholder" aria-hidden="true" />
           <div>
             <h3>SolaceTrade</h3>
             <p>
@@ -147,8 +147,10 @@ export default function Home() {
           </div>
         </a>
 
-        <div className="moral-clarity-card">
-          <div className="shield-placeholder" aria-hidden="true">✓</div>
+        <div className="governance-card">
+          <div className="governance-mark" aria-hidden="true">
+            ✓
+          </div>
           <div>
             <h3>Built on Moral Clarity</h3>
             <p>
@@ -159,24 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="solutions-strip" aria-label="Solutions for the real world">
-        <div className="solutions-title">
-          <span />
-          <h2>SOLUTIONS FOR THE REAL WORLD</h2>
-          <span />
-        </div>
-
-        <div className="solution-items">
-          <div>FOOD SAFETY &amp;<br />PACKAGING</div>
-          <div>AIR QUALITY &amp;<br />HVAC SYSTEMS</div>
-          <div>HEALTHCARE<br />INFRASTRUCTURE</div>
-          <div>INDUSTRIAL &amp;<br />MANUFACTURING</div>
-          <div>CONSUMER &amp;<br />EVERYDAY USE</div>
-          <div>ENVIRONMENTAL<br />STEWARDSHIP</div>
-        </div>
-      </section>
-
-      <div className="footer-band">
+      <div className="footer-band" aria-label="Global GPI mission statement">
         <p>MATERIAL SCIENCE. INTELLIGENT SYSTEMS. MEASURABLE IMPACT.</p>
       </div>
     </main>
