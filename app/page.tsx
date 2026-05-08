@@ -1,4 +1,16 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.45;
+    }
+  }, []);
+
   return (
     <main className="global-gpi-poster">
       <img
@@ -9,16 +21,12 @@ export default function Home() {
 
       <div className="earth-video-wrap">
         <video
+          ref={videoRef}
           className="earth-video"
           autoPlay
           muted
           loop
           playsInline
-          ref={(video) => {
-            if (video) {
-              video.playbackRate = 0.45;
-            }
-          }}
         >
           <source src="/video/earth_01.mp4" type="video/mp4" />
         </video>
