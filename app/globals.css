@@ -43,6 +43,37 @@ a {
   overflow: hidden;
   z-index: 20;
   pointer-events: none;
+  background: #020814;
+}
+
+.earth-video-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.05) 68%,
+      rgba(0, 8, 20, 0.68) 84%,
+      rgba(0, 8, 20, 0.96) 100%
+    );
+}
+
+.earth-video-wrap::after {
+  content: "🛡️  SAFER MATERIALS     🍃  STRONGER PLANET     🧠  SMARTER SYSTEMS     ♙  BETTER OUTCOMES";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 26px;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  letter-spacing: 0.02em;
+  white-space: normal;
 }
 
 .earth-video {
@@ -51,7 +82,6 @@ a {
   object-fit: cover;
   display: block;
 }
-
 /* INTERNAL PAGES */
 
 .internal-page {
