@@ -58,9 +58,9 @@ a {
 .earth-overlay {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -18px;
   transform: translateX(-50%);
-  width: 100%;
+  width: 92%;
   height: auto;
   z-index: 5;
   pointer-events: none;
