@@ -1,122 +1,176 @@
-export default function ContactPage() {
-  return (
-    <main className="contact-page">
-      <section className="contact-hero">
-        <div className="contact-overlay" />
+"use client";
 
-        <div className="contact-container">
-          <div className="contact-copy">
-            <span className="contact-kicker">
-              Global GPI
-            </span>
+import { FormEvent, useState } from "react";
+
+type SubmitState = "idle" | "sending" | "success" | "error";
+
+export default function ContactPage() {
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitState("sending");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      company: String(formData.get("company") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Contact request failed");
+      }
+
+      setSubmitState("success");
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      setSubmitState("error");
+    }
+  }
+
+  return (
+    <main className="contact-page-v2">
+      <section className="contact-v2-hero">
+        <div className="contact-v2-bg" />
+
+        <div className="contact-v2-container">
+          <div className="contact-v2-copy">
+            <span className="contact-v2-kicker">Global GPI</span>
 
             <h1>
-              Let’s Build the
-              Future of Materials.
+              Let’s Build the Future of Materials.
             </h1>
 
             <p>
-              Connect with Global GPI regarding
-              advanced materials partnerships,
-              commercial deployment, licensing,
-              manufacturing collaboration,
-              sustainability initiatives, and
-              strategic opportunities.
+              Connect with Global GPI regarding advanced materials partnerships,
+              commercial deployment, licensing, manufacturing collaboration,
+              sustainability initiatives, and strategic opportunities.
             </p>
 
-            <div className="contact-details">
-              <div className="contact-detail-card">
-                <h3>Email</h3>
+            <div className="contact-v2-proof-grid">
+              <article className="contact-v2-proof-card primary">
+                <span>Direct Contact</span>
+                <h2>Email Charlie</h2>
                 <a href="mailto:charlie@global-gpi.com">
                   charlie@global-gpi.com
                 </a>
-              </div>
+              </article>
 
-              <div className="contact-detail-card">
-                <h3>Focus Areas</h3>
-
+              <article className="contact-v2-proof-card">
+                <span>Collaboration Areas</span>
                 <ul>
-                  <li>Advanced Materials</li>
-                  <li>Food Packaging</li>
-                  <li>Sustainable Plastics</li>
-                  <li>Industrial Applications</li>
-                  <li>Commercial Partnerships</li>
+                  <li>Advanced materials development</li>
+                  <li>Food-contact packaging systems</li>
+                  <li>Sustainable plastics deployment</li>
+                  <li>Industrial and commercial partnerships</li>
                 </ul>
-              </div>
+              </article>
             </div>
           </div>
 
-          <div className="contact-form-wrap">
-            <form
-              className="contact-form"
-              action="/api/contact"
-              method="POST"
-            >
-              <div className="contact-form-grid">
-                <div className="contact-field">
-                  <label>Name</label>
+          <aside className="contact-v2-panel" aria-label="Contact form">
+            <div className="contact-v2-panel-header">
+              <span>Partnership Inquiry</span>
+              <h2>Start the Conversation</h2>
+              <p>
+                Share the application, market, or materials challenge you want
+                to discuss.
+              </p>
+            </div>
 
+            <form className="contact-v2-form" onSubmit={handleSubmit}>
+              <div className="contact-v2-form-grid">
+                <label className="contact-v2-field">
+                  <span>Name</span>
                   <input
                     type="text"
                     name="name"
                     required
                     placeholder="Your name"
+                    autoComplete="name"
                   />
-                </div>
+                </label>
 
-                <div className="contact-field">
-                  <label>Company</label>
-
+                <label className="contact-v2-field">
+                  <span>Company</span>
                   <input
                     type="text"
                     name="company"
                     placeholder="Company name"
+                    autoComplete="organization"
                   />
-                </div>
+                </label>
               </div>
 
-              <div className="contact-form-grid">
-                <div className="contact-field">
-                  <label>Email</label>
-
+              <div className="contact-v2-form-grid">
+                <label className="contact-v2-field">
+                  <span>Email</span>
                   <input
                     type="email"
                     name="email"
                     required
                     placeholder="you@company.com"
+                    autoComplete="email"
                   />
-                </div>
+                </label>
 
-                <div className="contact-field">
-                  <label>Phone</label>
-
+                <label className="contact-v2-field">
+                  <span>Phone</span>
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Optional"
+                    autoComplete="tel"
                   />
-                </div>
+                </label>
               </div>
 
-              <div className="contact-field">
-                <label>Message</label>
-
+              <label className="contact-v2-field full">
+                <span>Message</span>
                 <textarea
                   name="message"
                   required
-                  rows={8}
+                  rows={7}
                   placeholder="Tell us about your project, partnership interest, or material application."
                 />
-              </div>
+              </label>
 
               <button
+                className="contact-v2-submit"
                 type="submit"
-                className="contact-submit"
+                disabled={submitState === "sending"}
               >
-                Submit Inquiry
+                {submitState === "sending" ? "Sending..." : "Submit Inquiry"}
               </button>
+
+              {submitState === "success" && (
+                <p className="contact-v2-status success">
+                  Inquiry sent. The Global GPI team will follow up directly.
+                </p>
+              )}
+
+              {submitState === "error" && (
+                <p className="contact-v2-status error">
+                  Something went wrong. Please email charlie@global-gpi.com directly.
+                </p>
+              )}
             </form>
-          </div>
+          </aside>
         </div>
       </section>
     </main>
