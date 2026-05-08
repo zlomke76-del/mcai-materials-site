@@ -122,8 +122,8 @@ a {
 .materials-panel {
   position: absolute;
   top: 232px;
-  left: 7.2vw;
-  width: 392px;
+  left: 5.2vw;
+  width: 430px;
   z-index: 30;
 }
 
@@ -158,11 +158,11 @@ a {
 .material-card {
   display: grid;
   grid-template-columns: 160px 1fr;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
   min-height: 80px;
   margin-bottom: 8px;
-  padding: 7px 13px 7px 8px;
+  padding: 6px 10px 6px 6px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.72);
@@ -171,7 +171,7 @@ a {
 }
 
 .material-card img {
-  width: 160px;
+  width: 150px;
   height: 70px;
   object-fit: cover;
   border-radius: 10px;
@@ -214,8 +214,8 @@ a {
   top: 270px;
   left: 50%;
   transform: translateX(-50%);
-  width: 430px;
-  height: 500px;
+  width: 420px;
+  height: 490px;
   border-radius: 32px;
   overflow: hidden;
   z-index: 20;
@@ -252,8 +252,8 @@ a {
 .ai-panel {
   position: absolute;
   top: 232px;
-  right: 6.6vw;
-  width: 374px;
+  right: 5.2vw;
+  width: 410px;
   z-index: 30;
 }
 
@@ -295,11 +295,11 @@ a {
 .ai-card {
   display: grid;
   grid-template-columns: 136px 1fr;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   min-height: 78px;
   margin-bottom: 8px;
-  padding: 7px 13px 7px 8px;
+  padding: 6px 10px 6px 6px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.72);
@@ -309,7 +309,7 @@ a {
 
 .ai-image-placeholder {
   position: relative;
-  width: 136px;
+  width: 124px;
   height: 66px;
   overflow: hidden;
   border-radius: 10px;
