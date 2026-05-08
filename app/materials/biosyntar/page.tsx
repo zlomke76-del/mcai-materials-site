@@ -191,8 +191,6 @@ export default function BioSyntarPage() {
       <section className="biosyntar-section" id="science">
         <div className="biosyntar-container">
           <div className="biosyntar-heading">
-          />
-
           <div className="biosyntar-technical-grid">
             {technicalImages.slice(1).map((image) => (
               <img key={image} src={image} alt="BioSyntar technical validation" />
