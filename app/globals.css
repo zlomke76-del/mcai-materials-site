@@ -2228,3 +2228,33 @@ a{
     height:auto;
   }
 }
+
+
+/* BioSyntar science section cleanup */
+#science{
+  padding-top:96px;
+}
+
+#science .biosyntar-validation-panel{
+  margin-top:0;
+  margin-bottom:34px;
+}
+
+.biosyntar-technical-grid img{
+  height:auto;
+  aspect-ratio:1.42 / 1;
+  object-fit:contain;
+  object-position:center;
+  background:rgba(255,255,255,.96);
+  padding:10px;
+}
+
+@media(max-width:760px){
+  #science{
+    padding-top:72px;
+  }
+
+  .biosyntar-technical-grid img{
+    aspect-ratio:auto;
+  }
+}
