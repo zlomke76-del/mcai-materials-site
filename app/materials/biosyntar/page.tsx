@@ -190,16 +190,6 @@ export default function BioSyntarPage() {
 
       <section className="biosyntar-section" id="science">
         <div className="biosyntar-container">
-          <div className="biosyntar-heading">
-            <span>Materials Science</span>
-            <h2>Advanced Science. Proven Performance.</h2>
-            <p>
-              Development focuses on antibacterial efficacy, film clarity,
-              barrier performance, mechanical durability, biodegradability, and
-              food-contact readiness under realistic operating conditions.
-            </p>
-          </div>
-
           <div className="biosyntar-validation-panel">
             <div>
               <span className="biosyntar-panel-kicker">Validation Focus</span>
