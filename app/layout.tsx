@@ -1,12 +1,22 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "MCAI Materials",
+  title: "Global GPI",
   description:
     "Materials, defense, filtration, and applied intelligence systems.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+      },
+    ],
   },
 };
 
