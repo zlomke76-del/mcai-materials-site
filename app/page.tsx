@@ -13,6 +13,7 @@ export default function Home() {
 
   return (
     <main className="global-gpi-poster">
+      {/* BACKGROUND */}
       <img
         src="/images/background_image.png"
         alt="Global GPI Background"
@@ -28,7 +29,7 @@ export default function Home() {
         />
       </div>
 
-      {/* LEFT MATERIALS */}
+      {/* LEFT MATERIALS PANEL */}
       <section className="materials-panel">
         <div className="materials-header">
           <div className="materials-icon">◌</div>
