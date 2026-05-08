@@ -122,7 +122,11 @@ a {
 .materials-panel {
   position: absolute;
   top: 232px;
-  left: 5.2vw;
+
+  left: 50%;
+  transform: translateX(-100%);
+  margin-left: -255px;
+
   width: 430px;
   z-index: 30;
 }
@@ -252,7 +256,10 @@ a {
 .ai-panel {
   position: absolute;
   top: 232px;
-  right: 5.2vw;
+
+  left: 50%;
+  margin-left: 245px;
+
   width: 410px;
   z-index: 30;
 }
