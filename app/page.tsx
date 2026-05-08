@@ -14,6 +14,11 @@ export default function Home() {
           muted
           loop
           playsInline
+          ref={(video) => {
+            if (video) {
+              video.playbackRate = 0.45;
+            }
+          }}
         >
           <source src="/video/earth_01.mp4" type="video/mp4" />
         </video>
