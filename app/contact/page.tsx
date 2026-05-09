@@ -66,8 +66,8 @@ export default function ContactPage() {
               <article className="contact-v2-proof-card primary">
                 <span>Direct Contact</span>
                 <h2>Email Charlie</h2>
-                <a href="mailto:c.raymond@global-gpi.com">
-                  c.raymond@global-gpi.com
+                <a href="mailto:craymond@global-gpi.com">
+                  craymond@global-gpi.com
                 </a>
               </article>
 
